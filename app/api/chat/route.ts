@@ -1,19 +1,23 @@
 import { NextRequest, NextResponse } from "next/server";
+import supabase from "@/lib/supabase";
 
 export async function POST(req: NextRequest) {
   try {
     const { question } = await req.json(); // Read request body
 
     // TODO: Need a complete bio
-    const bio = `
-      - Name: Tsiry
-      - Background: Born in Madagascar, lived in France for 16 years, now in Canada.
-      - Career: Former camera operator & video content manager. Now a web developer.
-      - Skills: Next.js, React, MongoDB, Node.js, Python, Video Editing (Premiere, After Effects).
-      - Passion: Gym & biomechanics, AI, traveling, learning new tech.
-      - Projects: Created GrindPal, a workout tracking web app.
-      - Personal: Married since 2013, loves cats (Mochi & Bastet), enjoys meeting new people.
-    `;
+    const { data, error } = await supabase
+      .from('bio')
+      .select('content')
+      .eq('user', 'Tsiry') // Always using "tsiry" for your bio
+      .single(); // We expect only one result
+
+    if (error) throw error;
+    const bio = data?.content; // The bio content
+
+    if (!bio) {
+      return NextResponse.json({ answer: "Bio not found!" }, { status: 404 });
+    }
 
     // TODO: need choose all the specify keyworkds
     if (!question.toLowerCase().includes("tsiry") && !question.toLowerCase().includes("grindpal")) {
@@ -28,7 +32,7 @@ export async function POST(req: NextRequest) {
         Authorization: `Bearer ${process.env.MISTRAL_API_KEY}`,
       },
       body: JSON.stringify({
-        model: "mistral-small",
+        model: "mistral-small-latest",
         messages: [
           { role: "system", content: `You are TzirBot, an AI assistant that only answers questions about Tsiry. Use the following details:\n${bio}` },
           { role: "user", content: question },
@@ -40,8 +44,8 @@ export async function POST(req: NextRequest) {
       throw new Error(`API error: ${response.statusText}`);
     }
 
-    const data = await response.json();
-    return NextResponse.json({ answer: data.choices[0].message.content });
+    const responseData = await response.json();
+    return NextResponse.json({ answer: responseData.choices[0].message.content });
 
   } catch (error: unknown) {
     console.error("Error:", error);
