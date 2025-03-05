@@ -3,14 +3,14 @@ import supabase from "@/lib/supabase";
 
 export async function POST(req: NextRequest) {
   try {
-    const { question } = await req.json(); // Read request body
 
-    // TODO: Need a complete bio
+    const question = await req.json(); 
+
     const { data, error } = await supabase
       .from('bio')
       .select('content')
-      .eq('user', 'Tsiry') // Always using "tsiry" for your bio
-      .single(); // We expect only one result
+      .eq('user', 'Tsiry')
+      .single(); 
 
     if (error) throw error;
     const bio = data?.content; // The bio content
@@ -18,11 +18,6 @@ export async function POST(req: NextRequest) {
     if (!bio) {
       return NextResponse.json({ answer: "Bio not found!" }, { status: 404 });
     }
-
-    // TODO: need choose all the specify keyworkds
-    // if (!question.toLowerCase().includes("tsiry") && !question.toLowerCase().includes("grindpal")) {
-    //   return NextResponse.json({ answer: "I can only answer questions about Tsiry!" });
-    // }
 
     // Make API request to Mistral
     const response = await fetch("https://api.mistral.ai/v1/chat/completions", {
