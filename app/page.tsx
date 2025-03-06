@@ -5,7 +5,7 @@ import InputField from "@core/ui/Fields/InputField/InputField";
 import BasicButton from "@/core/ui/Button/BasicButton";
 
 export default function Home() {
-  const { askChat, answer, setQuestion, question } = useChat();
+  const { askChat, messages, setQuestion, question } = useChat();
 
   return (
     <main className="h-dvh">
@@ -18,7 +18,16 @@ export default function Home() {
           <article className="flex flex-col items-center justify-center w-full h-full">
             <div className="flex flex-col gap-2 w-2/3 h-2/3 p-2 bg-green-100">
               {/* ANSWERS */}
-              <div className="h-full bg-green-500 p-4">{answer}</div>
+              <div className="h-full bg-green-500 p-4">
+                {messages.map((message, i: number) => {
+                  return (
+                    <div key={i}>
+                      <div>{message.question}</div>
+                      <div>{message.answer}</div>
+                    </div>
+                  );
+                })}
+              </div>
               {/* QUESTIONS */}
               <div className="flex flex-row gap-2">
                 <InputField
@@ -28,7 +37,7 @@ export default function Home() {
                   classNames={{ inputWrapper: " flex-1 bg-blue-500" }}
                 />
                 <BasicButton
-                  onPress={() => askChat(question)}
+                  onPress={() => askChat()}
                   content=">"
                   className="w-auto flex-none bg-yellow-800"
                 />

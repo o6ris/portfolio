@@ -27,6 +27,6 @@
       "@core/*": ["core/*"],
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "lib/supabase.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "lib/supabase.js", "modules/clients/contexts/chatContext.tsx"],
   "exclude": ["node_modules"]
 }

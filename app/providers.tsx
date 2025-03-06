@@ -1,11 +1,12 @@
-"use client"
+"use client";
 
-import {HeroUIProvider} from '@heroui/react'
+import { HeroUIProvider } from "@heroui/react";
+import { ChatProvider } from "@/modules/clients/contexts/chatContext";
 
-export function Providers({children}: { children: React.ReactNode }) {
+export function Providers({ children }: { children: React.ReactNode }) {
   return (
     <HeroUIProvider>
-      {children}
+      <ChatProvider>{children}</ChatProvider>
     </HeroUIProvider>
-  )
+  );
 }
