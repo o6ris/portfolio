@@ -35,9 +35,10 @@ function Chat() {
               </div>
             </div>
             <div className="flex justify-end">
-              <div className="bg-gradient-to-r from-fuchsia-900 to-purple-600 shadow-md p-2 rounded-lg max-w-3/4 text-fuchsia-200">
-                {message.answer}
-              </div>
+              <div
+                className="bg-gradient-to-r from-fuchsia-900 to-purple-600 shadow-md p-2 rounded-lg max-w-3/4 text-fuchsia-200"
+                dangerouslySetInnerHTML={{ __html: message.answer || "" }} // Ensure answer is a string
+              />
             </div>
           </div>
         ))}

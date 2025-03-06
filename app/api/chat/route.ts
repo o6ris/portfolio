@@ -3,14 +3,13 @@ import supabase from "@/lib/supabase";
 
 export async function POST(req: NextRequest) {
   try {
-
-    const question = await req.json(); 
+    const question = await req.json();
 
     const { data, error } = await supabase
-      .from('bio')
-      .select('content')
-      .eq('user', 'Tsiry')
-      .single(); 
+      .from("bio")
+      .select("content")
+      .eq("user", "Tsiry")
+      .single();
 
     if (error) throw error;
     const bio = data?.content; // The bio content
@@ -43,6 +42,15 @@ export async function POST(req: NextRequest) {
             🔹 **What You Must Avoid:**
             - NEVER answer anything outside of Tsiry&nbsp;s provided bio.
             - NEVER make up information. If you don&nbsp;t know something, respond accordingly.
+
+            🔹 **Answer Format Instructions (with HTML tags):**
+            - Structure your answers using **HTML tags**. For example:
+              - Use "<ul>" for unordered lists and "<li>" for list items.
+              - Use "<p>" for paragraphs to separate blocks of text.
+              - Use "<strong>" for important concepts or words, and "<em>" for emphasis.
+              - If appropriate, add line breaks with "<br />.
+              - Use "<h2>", "<h3>", etc., for headings or subheadings where necessary.
+            - Make sure the answer is structured in a way that is easy to read when rendered as HTML.
             
             🔹 **Bio for Reference:**
             ${bio}`,
@@ -57,12 +65,17 @@ export async function POST(req: NextRequest) {
     }
 
     const responseData = await response.json();
-    return NextResponse.json({ answer: responseData.choices[0].message.content });
-
+    return NextResponse.json({
+      answer: responseData.choices[0].message.content,
+    });
   } catch (error: unknown) {
     console.error("Error:", error);
-    const errorMessage = error instanceof Error ? error.message : "An unknown error occurred";
+    const errorMessage =
+      error instanceof Error ? error.message : "An unknown error occurred";
 
-    return NextResponse.json({ answer: `Something went wrong: ${errorMessage}` }, { status: 500 });
+    return NextResponse.json(
+      { answer: `Something went wrong: ${errorMessage}` },
+      { status: 500 }
+    );
   }
 }
