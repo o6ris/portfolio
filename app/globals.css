@@ -1,1 +1,15 @@
 @import "tailwindcss";
+
+@theme {
+  --shadow-purple-3xl: 0 10px 35px rgba(128, 0, 128, 0.25); /* Purple shadow */
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
