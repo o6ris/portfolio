@@ -9,7 +9,11 @@ const config = {
     "./node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}"
   ],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage: {
+        'gradient-primary': 'linear-gradient(to right, #701a75, #9333ea)',
+      },
+    },
   },
   darkMode: "class",
   plugins: [heroui()]
