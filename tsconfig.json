@@ -27,6 +27,6 @@
       "@core/*": ["core/*"],
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "lib/supabase.js", "modules/clients/contexts/chatContext.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "lib/supabase.js", "modules/clients/contexts/chatContext.tsx", "modules/clients/utils/getGoogleToken.js"],
   "exclude": ["node_modules"]
 }
