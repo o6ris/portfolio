@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useEffect } from "react";
+import { motion } from "framer-motion";
 import useChat from "@/modules/clients/hooks/useChat";
 import InputField from "@core/ui/Fields/InputField/InputField";
 import BasicButton from "@/core/ui/Button/BasicButton";
@@ -21,7 +22,16 @@ function Chat() {
     }
   }, [messages]); // Runs when messages update
   return (
-    <div className="flex flex-col gap-4 w-3/4 h-3/4 p-4 bg-gradient-to-r from-slate-950 to-slate-900 shadow-purple-3xl rounded-xl">
+    <motion.div
+      initial="hidden"
+      whileInView="visible"
+      variants={{
+        hidden: { opacity: 0, x: 50 },
+        visible: { opacity: 1, x: 0, transition: { duration: 0.5 } },
+      }}
+      viewport={{ once: true, amount: 0.2 }}
+      className="flex flex-col gap-4 w-3/4 h-3/4 p-4 bg-gradient-to-r from-slate-950 to-slate-900 shadow-purple-3xl rounded-xl"
+    >
       {/* ANSWERS */}
       <div className="h-full p-4 overflow-auto no-scrollbar">
         {messages.map((message, i) => (
@@ -56,30 +66,67 @@ function Chat() {
         ))}
       </div>
       {/* QUESTIONS */}
-      <div className="flex flex-row gap-2">
-        <InputField
-          value={question}
-          onValueChange={(value) => setQuestion(value)}
-          variant="bordered"
-          classNames={{
-            inputWrapper: "flex-1 border-2 border-fuchsia-900 rounded-2xl ",
-            input: "p-4 text-slate-500",
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        variants={{
+          hidden: { opacity: 0, x: 50 },
+          visible: { opacity: 1, x: 0, transition: { duration: 0.5 } },
+        }}
+        viewport={{ once: true, amount: 0.2 }}
+        className="flex flex-row gap-2"
+      >
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          variants={{
+            hidden: { opacity: 0, x: 50 },
+            visible: { opacity: 1, x: 0, transition: { duration: 0.5 } },
           }}
-        />
-        <BasicButton
-          onPress={() => askChat()}
-          startContent={
-            <Icon
-              name="SendHorizontal"
-              strokeWidth={1}
-              size={26}
-              color="white"
-            />
-          }
-          className="w-auto flex-none bg-gradient-to-r from-fuchsia-900 to-purple-600 rounded-3xl shadow-lg shadow-fuchsia-900/50"
-        />
-      </div>
-    </div>
+          viewport={{ once: true, amount: 0.2 }}
+          className="w-full"
+        >
+          <InputField
+            value={question}
+            onValueChange={(value) => setQuestion(value)}
+            variant="bordered"
+            classNames={{
+              inputWrapper: "flex-1 border-2 border-fuchsia-900 rounded-2xl ",
+              input: "p-4 text-slate-500",
+            }}
+          />
+        </motion.div>
+        <motion.div
+          initial={{ scale: 0.5, opacity: 0, x: 10 }}
+          animate={{ scale: 1, opacity: 1, x: 0 }}
+          transition={{
+            type: "spring",
+            stiffness: 100,
+            damping: 10,
+            duration: 0.5,
+            delay: 0.5,
+          }}
+          whileHover={{
+            scale: 1.05,
+            transition: { duration: 0.5 },
+          }}
+          whileTap={{ scale: 0.9 }}
+        >
+          <BasicButton
+            onPress={() => askChat()}
+            startContent={
+              <Icon
+                name="SendHorizontal"
+                strokeWidth={1}
+                size={26}
+                color="white"
+              />
+            }
+            className="w-auto flex-none bg-gradient-to-r from-fuchsia-900 to-purple-600 rounded-3xl shadow-lg shadow-fuchsia-900/50"
+          />
+        </motion.div>
+      </motion.div>
+    </motion.div>
   );
 }
 
