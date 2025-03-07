@@ -4,6 +4,11 @@
   --shadow-purple-3xl: 0 10px 35px rgba(128, 0, 128, 0.25); /* Purple shadow */
 }
 
+/* CHAT STYLES */
+.bg-gradiant-primary{
+  @apply bg-gradient-to-r from-fuchsia-900 to-purple-600;
+}
+
 @layer utilities {
   .no-scrollbar::-webkit-scrollbar {
     display: none;

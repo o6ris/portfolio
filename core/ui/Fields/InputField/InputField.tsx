@@ -13,8 +13,10 @@ function InputField(props: InputFieldProps) {
     <Input
       {...props}
       classNames={{
-        inputWrapper: "w-full bg-blue-700 ",
-        input: "p-4",
+        inputWrapper: `w-full focus-visible:outline-none data-[focus=true]:ring-transparent ${
+          props.classNames?.inputWrapper || ""
+        }`,
+        input: `p-4 ${props.classNames?.input || ""}`,
         ...(props.classNames || {}),
       }}
     />

@@ -10,17 +10,17 @@ import PulseLoader from "react-spinners/PulseLoader";
 
 function Chat() {
   const { askChat, messages, setQuestion, question, isLoading } = useChat();
-  const latestMessageRef = useRef<HTMLDivElement | null>(null); // Create ref
+  const latestMessageRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    // Scroll to latest message when messages change
     if (latestMessageRef.current) {
       latestMessageRef.current.scrollIntoView({
         behavior: "smooth",
         block: "end",
       });
     }
-  }, [messages]); // Runs when messages update
+  }, [messages]);
+
   return (
     <motion.div
       initial="hidden"
@@ -47,7 +47,7 @@ function Chat() {
             </div>
             <div className="flex justify-end">
               {isLoading && i === messages.length - 1 ? (
-                <div className="bg-gradient-to-r from-fuchsia-900 to-purple-600 shadow-md p-2 rounded-lg max-w-3/4 text-fuchsia-200">
+                <div className="bg-gradiant-primary shadow-md p-2 rounded-lg max-w-3/4 text-fuchsia-200">
                   <PulseLoader
                     color={"#EDF1FF"}
                     loading={isLoading}
@@ -57,8 +57,8 @@ function Chat() {
                 </div>
               ) : (
                 <div
-                  className="bg-gradient-to-r from-fuchsia-900 to-purple-600 shadow-md p-2 rounded-lg max-w-3/4 text-fuchsia-200 shadow-lg shadow-fuchsia-900/50"
-                  dangerouslySetInnerHTML={{ __html: message.answer || "" }} // Ensure answer is a string
+                  className="bg-gradiant-primary shadow-md p-2 rounded-lg max-w-3/4 text-fuchsia-200 shadow-lg shadow-fuchsia-900/50"
+                  dangerouslySetInnerHTML={{ __html: message.answer || "" }}
                 />
               )}
             </div>
@@ -91,7 +91,7 @@ function Chat() {
             onValueChange={(value) => setQuestion(value)}
             variant="bordered"
             classNames={{
-              inputWrapper: "flex-1 border-2 border-fuchsia-900 rounded-2xl ",
+              inputWrapper: "flex-1 border-2 border-fuchsia-900 rounded-2xl",
               input: "p-4 text-slate-500",
             }}
           />
@@ -122,7 +122,7 @@ function Chat() {
                 color="white"
               />
             }
-            className="w-auto flex-none bg-gradient-to-r from-fuchsia-900 to-purple-600 rounded-3xl shadow-lg shadow-fuchsia-900/50"
+            className="w-auto flex-none bg-gradiant-primary rounded-3xl shadow-lg shadow-fuchsia-900/50"
           />
         </motion.div>
       </motion.div>

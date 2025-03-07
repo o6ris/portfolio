@@ -5,13 +5,27 @@ interface BasicButtonProps {
   className?: string;
   content?: string;
   onPress?: (e: PressEvent) => void;
-  variant?: "flat" | "solid" | "bordered" | "light" | "faded" | "shadow" | "ghost";
+  variant?:
+    | "flat"
+    | "solid"
+    | "bordered"
+    | "light"
+    | "faded"
+    | "shadow"
+    | "ghost";
   isIconOnly?: boolean;
   startContent?: ReactElement;
 }
 
 function BasicButton(props: BasicButtonProps) {
-  return <Button {...props} className={`p-4 ${props.className}`} >{props.content}</Button>;
+  return (
+    <Button
+      {...props}
+      className={`p-4 data-focus:outline-none ${props.className}`}
+    >
+      {props.content}
+    </Button>
+  );
 }
 
 export default BasicButton;
