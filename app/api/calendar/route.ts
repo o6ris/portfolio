@@ -9,9 +9,9 @@ import { sendConfirmationEmail } from "@/lib/emails";
 const calendarId = "tsiry.ralamb@gmail.com";
 
 export async function POST(req: NextRequest) {
-  const { message, userEmail, userPhone, subject } = await req.json();
+  const { message, userEmail, userPhone, text } = await req.json();
 
-  if (!message || !userEmail || !userPhone || !subject) {
+  if (!message || !userEmail || !userPhone || !text) {
     return NextResponse.json(
       { error: "Missing required fields" },
       { status: 400 }
@@ -29,7 +29,7 @@ export async function POST(req: NextRequest) {
   }
 
   const startDateTime = new Date(parsedDate);
-  const endDateTime = new Date(startDateTime.getTime() + 60 * 60 * 1000); // 1-hour event
+  const endDateTime = new Date(startDateTime.getTime() + 60 * 60 * 500);
 
   const calendar = getGoogleCalendarClient();
 
@@ -53,25 +53,25 @@ export async function POST(req: NextRequest) {
 
     // Step 2: Create the event
     const event = {
-      summary: `Call with ${userEmail}`,
-      description: `Meeting booked by chatbot. Phone: ${userPhone}. Subject: ${subject}`,
+      summary: `your call with Tsiry is confirmed!`,
+      description: `Call booked with Tsiry at ${startDateTime.toISOString()}. Your phone number:${userPhone}. /n Subject:${text}`,
       start: {
         dateTime: startDateTime.toISOString(),
         timeZone: "America/Toronto",
       },
       end: { dateTime: endDateTime.toISOString(), timeZone: "America/Toronto" },
-      // TODO: Sender don't recieve email
-      attendees: [{ email: userEmail }, { email: "tsiry.ralamb@gmail.com" }],
-      sendUpdates: "all",
+      attendees: [{ email: userEmail }],
     };
 
     const createdEvent = await calendar.events.insert({
       calendarId,
       requestBody: event,
+      sendUpdates: "all",
     });
 
     // Step 3: Send confirmation email
-    await sendConfirmationEmail(userEmail, event.summary, startDateTime);
+    await sendConfirmationEmail(null, userEmail, userPhone, event.summary, text, startDateTime);
+    await sendConfirmationEmail("tsiry.ralamb@gmail.com", userEmail, userPhone, event.summary, text, startDateTime);
 
     return NextResponse.json(
       { success: true, event: createdEvent.data },

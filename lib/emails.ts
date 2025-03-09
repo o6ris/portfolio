@@ -1,6 +1,17 @@
 import nodemailer from "nodemailer";
 
-export async function sendConfirmationEmail(toEmail: string, eventTitle: string, eventDate: Date) {
+export async function sendConfirmationEmail(
+  myEmail: string | null,
+  userEmail: string,
+  userPhone: string,
+  summary: string,
+  text: string,
+  eventDate: Date
+) {
+  const textSubject =
+    myEmail === process.env.EMAIL_USERNAME
+      ? `Your call with ${userEmail} / ${userPhone} is confirmed for ${eventDate.toLocaleString()} The subject will be: ${text}.`
+      : `Your call with Tsiry is confirmed for ${eventDate.toLocaleString()}.`;
   const transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
@@ -11,9 +22,9 @@ export async function sendConfirmationEmail(toEmail: string, eventTitle: string,
 
   const mailOptions = {
     from: process.env.EMAIL_USERNAME,
-    to: toEmail,
-    subject: eventTitle,
-    text: `Your call is confirmed for ${eventDate.toLocaleString()}.`,
+    to: myEmail === process.env.EMAIL_USERNAME ? myEmail : userEmail,
+    subject: summary,
+    text: textSubject,
   };
 
   await transporter.sendMail(mailOptions);
