@@ -4,7 +4,7 @@ import useChatContext from "../contexts/chatContext";
 export default function useChat() {
   const [question, setQuestion] = useState("");
   const { messages, setMessages } = useChatContext();
-  const [isLoading, setIsLoading] = useState(false)
+  const [isLoading, setIsLoading] = useState(false);
   const baseUrl = process.env.NEXT_PUBLIC_API_URL;
   const askChat = async () => {
     if (!question.trim()) return;
@@ -13,10 +13,13 @@ export default function useChat() {
     setQuestion("");
     const url = `${baseUrl}/api/chat`;
     try {
-      setIsLoading(true)
+      setIsLoading(true);
       const response = await fetch(url, {
         method: "POST",
-        body: JSON.stringify(question),
+        body: JSON.stringify({
+          question: question,
+          history: messages,
+        }),
         next: { revalidate: 1000 },
       });
       const data = await response.json();
@@ -42,7 +45,7 @@ export default function useChat() {
         )
       );
     } finally {
-      setIsLoading(false)
+      setIsLoading(false);
     }
   };
 
@@ -52,6 +55,6 @@ export default function useChat() {
     messages,
     setQuestion,
     question,
-    isLoading
+    isLoading,
   };
 }
