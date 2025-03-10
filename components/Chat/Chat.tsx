@@ -3,7 +3,7 @@
 import { useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import useChat from "@/modules/clients/hooks/useChat";
-import InputField from "@core/ui/Fields/InputField/InputField";
+import TextareaField from "@/core/ui/Fields/TextareaField/TextareaField";
 import BasicButton from "@/core/ui/Button/BasicButton";
 import Icon from "@/core/ui/Icons/Icon";
 import PulseLoader from "react-spinners/PulseLoader";
@@ -74,7 +74,7 @@ function Chat() {
           visible: { opacity: 1, x: 0, transition: { duration: 0.5 } },
         }}
         viewport={{ once: true, amount: 0.2 }}
-        className="flex flex-row gap-2"
+        className="flex flex-row gap-2 items-end"
       >
         <motion.div
           initial="hidden"
@@ -86,10 +86,12 @@ function Chat() {
           viewport={{ once: true, amount: 0.2 }}
           className="w-full"
         >
-          <InputField
+          <TextareaField
             value={question}
             onValueChange={(value) => setQuestion(value)}
             variant="bordered"
+            minRows={1}
+            maxRows={3}
             classNames={{
               inputWrapper: "flex-1 border-2 border-fuchsia-900 rounded-2xl",
               input: "p-4 text-slate-500",
