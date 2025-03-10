@@ -96,15 +96,16 @@ export default function useChat() {
           )
         );
       } else {
-        const error = new Error(data.message);
+        const error = new Error(data.error.errors[0].message || "An unexpected error occurred");
         throw error;
       }
     } catch (error) {
       console.error(error);
+      const errorMessage = error instanceof Error ? error.message : "An unexpected error occurred";
       setMessages((prevMessages) =>
         prevMessages.map((msg, index) =>
           index === prevMessages.length - 1
-            ? { ...msg, answer: "Error: Unable to book the call" }
+            ? { ...msg, answer: errorMessage }
             : msg
         )
       );

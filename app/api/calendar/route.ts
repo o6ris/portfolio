@@ -80,7 +80,7 @@ export async function POST(req: NextRequest) {
   } catch (error) {
     console.error("Error booking meeting 2:", error);
     return NextResponse.json(
-      { error: "Internal server error." },
+      { error: error || "Internal server error." },
       { status: 500 }
     );
   }
