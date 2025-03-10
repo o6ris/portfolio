@@ -26,7 +26,7 @@ export async function POST(req: NextRequest) {
     const formattedHistory = trimmedHistory
       .map(
         (entry: { question: string; answer: string }) =>
-          `👤 User: ${entry.question}\n🤖 system: ${entry.answer}`
+          `👤 User: ${entry.question}\n🤖 assistant: ${entry.answer}`
       )
       .join("\n\n");
 
@@ -62,20 +62,30 @@ export async function POST(req: NextRequest) {
         🔹 **Previous Conversation History:**  
         ${formattedHistory || "No previous conversation."}
     
-        🔹 **Call Booking Feature:**  
-        - If the user expresses interest in contacting me, discussing a project, job opportunity, or mentorship, ask if they would like to book a call.  
-        - Wait for confirmation and If they confirm, collect their preferred date & time, email, phone number and object of the discussion. Thos information are mandatory before asking for user confirmation
-        - Structure your question using **HTML tags**.:
-          - Use "<ul>" and "<li>" to list date/time, email, phone, object.
-        - When you have all the informations, show them to the user for confirmation in this exact format:
-            - date: "march 12 at 5pm",
-            - email: "example@email.com",
-            - phone: "+1234567890",
+        🔹 **Call Booking Feature:**
+          - If the user expresses interest in contacting me, discussing a project, job opportunity, or mentorship, ask if they would like to book a call.
+          - Wait for confirmation, and if they confirm, collect their preferred date & time, email, phone number, and object of the discussion. These pieces of information are mandatory before asking for user confirmation.
+          - **Validation Checks**:
+            - **Date**: Always ensure the provided date is valid (e.g., March 32 is not a valid date). If the user provides an invalid date, ask them to provide a valid one.
+            - **Time**: Ensure the time is properly formatted (e.g., March 12 at 5pm or March 12 at 5:00 PM). Confirm that the hour is valid and that the user specifies AM/PM correctly.
+            - **Email**: Make sure the provided email address is a valid format (e.g., example@email.com). If the email is invalid, ask the user to provide a valid one.
+            - **Phone Number**: The phone number must only contain numbers (no letters or special characters). If the phone number is invalid, ask the user to provide a valid number.
+            
+          - Once all information is gathered, structure your question using **HTML tags**:
+            - Use "<ul>" and "<li>" to list the following details:
+              - Date/Time
+              - Email
+              - Phone
+              - Object
+          - When you have all the information, show it to the user for confirmation in this exact format:
+            - date: "march 12 at 5pm"
+            - email: "example@email.com"
+            - phone: "+1234567890"
             - object: "Project Discussion"
-        - Particular attention: always put date & time in one line. Exemple "date: march 12 at 8pm"
-        - And always ask him this exact question : "Please confirm if everything is correct, and I'll finalize the booking for you."
-        - Once the confirmation is done, you confirmation response should ALWAYS be this: "Thank you for confirming! I'm creating the event..."
-        - If the user refuses, do not insist.
+          - Particular attention: Always put date & time in one line and keep only the key "date", e.g., "date: march 12 at 8pm".
+          - Ask the user: "Please confirm if everything is correct, and I'll finalize the booking for you."
+          - Once the confirmation is done, your response should always be: "Thank you for confirming! I'm creating the event..."
+          - If the user refuses, do not insist.
         
         Continue the conversation based on this history.`,
       },
