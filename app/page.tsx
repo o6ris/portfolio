@@ -8,11 +8,8 @@ export default function Home() {
         <section className="flex flex-col items-center justify-center w-full">
           <Title />
         </section>
-        {/* CHAT */}
         <section className="flex flex-col items-center justify-center w-full">
-          <article className="flex flex-col items-center justify-center w-full h-full">
-            <Chat />
-          </article>
+          <Chat />
         </section>
       </section>
     </main>
