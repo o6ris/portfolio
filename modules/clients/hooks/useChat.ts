@@ -106,9 +106,13 @@ export default function useChat() {
           )
         );
       } else {
-        const error = new Error(
-          data.error.errors[0].message || "An unexpected error occurred"
-        );
+        let errorMsg;
+        if (data.error.errors) {
+          errorMsg = data.error.errors[0].message;
+        } else {
+          errorMsg = data.error;
+        }
+        const error = new Error(errorMsg || "An unexpected error occurred");
         throw error;
       }
     } catch (error) {
