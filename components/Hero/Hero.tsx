@@ -19,7 +19,7 @@ export default function Hero() {
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
             }}
-            className="ml-2 text-2xl font-bold flex justify-start font-[family-name:var(--font-lexend)] bg-clip-text text-transparent bg-gradient-to-r from-white to-white transition-all duration-100 text-center "
+            className="ml-2 text-2xl font-bold flex justify-start font-[family-name:var(--font-lexend)] bg-clip-text text-transparent bg-gradient-to-r from-white to-white transition-all duration-100 text-center cursor-default"
           >
             {title}
           </motion.h2>
