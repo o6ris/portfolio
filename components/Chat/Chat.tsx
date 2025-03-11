@@ -100,6 +100,7 @@ function Chat() {
             variant="bordered"
             minRows={1}
             maxRows={3}
+            isDisabled={isLoading}
             classNames={{
               inputWrapper: "flex-1 border-2 border-fuchsia-900 rounded-2xl",
               input: "p-4 text-slate-500",

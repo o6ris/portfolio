@@ -8,6 +8,7 @@ interface TextareaFieldProps {
   variant?: "flat" | "bordered" | "faded" | "underlined";
   minRows?: number,
   maxRows?: number
+  isDisabled?: boolean,
 }
 
 function TextareaField(props: TextareaFieldProps) {
