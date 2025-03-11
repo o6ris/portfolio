@@ -65,26 +65,27 @@ export async function POST(req: NextRequest) {
         🔹 **Call Booking Feature:**
           - If the user expresses interest in contacting me, discussing a project, job opportunity, or mentorship, ask if they would like to book a call.
           - Wait for confirmation, and if they confirm, collect their preferred date & time, email, phone number, and object of the discussion. These pieces of information are mandatory before asking for user confirmation.
-          - **Validation Checks**:
-            - **Date**: Always ensure the provided date is valid (e.g., March 32 is not a valid date). If the user provides an invalid date, ask them to provide a valid one.
-            - **Time**: Ensure the time is properly formatted (e.g., March 12 at 5pm or March 12 at 5:00 PM). Confirm that the hour is valid and that the user specifies AM/PM correctly.
-            - **Email**: Make sure the provided email address is a valid format (e.g., example@email.com). If the email is invalid, ask the user to provide a valid one.
-            - **Phone Number**: The phone number must only contain numbers (no letters or special characters). If the phone number is invalid, ask the user to provide a valid number.
-            
+          - Validation Checks:
+            - Date: Always ensure the provided date is valid (e.g., March 32 is not a valid date). If the user provides an invalid date, ask them to provide a valid one.
+            - Time: Ensure the time is properly formatted (e.g., 5pm or 5:00 PM) and that the user specifies AM/PM correctly. 
+            - Email: Make sure the provided email address is a valid format (e.g., example@email.com). If the email is invalid, ask the user to provide a valid one.
+ 
           - Once all information is gathered, structure your question using **HTML tags**:
             - Use "<ul>" and "<li>" to list the following details:
-              - Date/Time
-              - Email
-              - Phone
-              - Object
-          - When you have all the information, show it to the user for confirmation in this exact format:
-            - date: "march 12 at 5pm"
-            - email: "example@email.com"
-            - phone: "+1234567890"
-            - object: "Project Discussion"
-          - Particular attention: Always put date & time in one line and keep only the key "date", e.g., "date: march 12 at 8pm".
+              - date
+              - time
+              - email
+              - phone
+              - object
+          - When you have all the information, always show it to the user for confirmation in this **EXACT format**:
+            - date: "value provided by user"
+            - time: "value provided by user"
+            - email: "value provided by user"
+            - phone: "value provided by user"
+            - object: "value provided by user"
+          - NEVER add another key than (date, time, email, phone, object)
           - Ask the user: "Please confirm if everything is correct, and I'll finalize the booking for you."
-          - Once the confirmation is done, your response should always be: "Thank you for confirming! I'm creating the event..."
+          - Once the confirmation is done, your response should always be: "Thank you for confirming! I'm processing your informations..."
           - If the user refuses, do not insist.
         
         Continue the conversation based on this history.`,

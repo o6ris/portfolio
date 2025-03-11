@@ -9,9 +9,9 @@ import { sendConfirmationEmail } from "@/lib/emails";
 const calendarId = "tsiry.ralamb@gmail.com";
 
 export async function POST(req: NextRequest) {
-  const { bookingDate, userEmail, userPhone, text } = await req.json();
+  const { date, time, userEmail, userPhone, text } = await req.json();
 
-  if (!bookingDate || !userEmail || !userPhone || !text) {
+  if (!date || !userEmail || !userPhone || !text) {
     return NextResponse.json(
       { error: "Missing required fields" },
       { status: 400 }
@@ -20,7 +20,7 @@ export async function POST(req: NextRequest) {
 
   // Extract date & time from user message
   // TODO: Need to be refine because can't parse perfectly
-  const parsedDate = parseUserInputToDate(bookingDate);
+  const parsedDate = parseUserInputToDate(`${date} ${time}`);
   if (!parsedDate) {
     return NextResponse.json(
       { error: "Couldn't understand date and time" },
