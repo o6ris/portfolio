@@ -19,7 +19,6 @@ export async function POST(req: NextRequest) {
   }
 
   // Extract date & time from user message
-  // TODO: Need to be refine because can't parse perfectly
   const parsedDate = parseUserInputToDate(`${date} ${time}`);
   if (!parsedDate) {
     return NextResponse.json(

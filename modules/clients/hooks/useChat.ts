@@ -207,6 +207,19 @@ export default function useChat() {
     }
   }, [messages]);
 
+  useEffect(() => {
+    setTimeout(() => {
+      setMessages((prevMessages) => [
+        ...prevMessages,
+        {
+          question: "",
+          answer:
+            "Hi there! <strong>I'm virtual Tsiry.</strong> <p>You can ask me anything about my skills, experience, or projects.</p> <p>Feel free to start with something like <strong>'What do you do?'</strong> or <strong>'Tell me about your projects!'</strong></p> <p>You can also <strong>book a call with me</strong> if you want to</p>",
+        },
+      ]);
+    }, 2000);
+  }, []);
+
   return {
     askChat,
     bookCall,
