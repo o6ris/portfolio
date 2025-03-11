@@ -21,7 +21,7 @@ function BasicButton(props: BasicButtonProps) {
   return (
     <Button
       {...props}
-      className={`p-4 data-focus:outline-none ${props.className}`}
+      className={`p-4 cursor-pointer data-focus:outline-none ${props.className}`}
     >
       {props.content}
     </Button>

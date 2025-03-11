@@ -1,12 +1,15 @@
 # Changelog
 
-## [0.3.0] - 2025-03-10
+## [0.4.0] - 2025-03-11
 
 ### 🚀 Features
 
-- **Animated Title**: Added an animated title to the home page for a more dynamic user experience.
+- **Hero Section**: Created a `Hero` section and placed the animated title inside it.
+- **Navigation Buttons**: Added buttons for navigation within the `Hero` section.
+- **Name Title**: Introduced an additional animated title displaying my name.
+- **Profile Picture Background**: Added my profile picture as a background on the left side of the home page.
 
-### 🛠️ Internal Updates
+### 🎨 UI Improvements
 
-- **Title Styling**: Updated the title style and fixed its centered positioning for better alignment.
-- **Font Handling**: Improved font styling for the title to enhance readability and design consistency.
+- **Background Blending**: Adjusted the profile picture to blend smoothly with the existing gradient background.
+

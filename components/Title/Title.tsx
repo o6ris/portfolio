@@ -10,12 +10,12 @@ function Title() {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
-      className="text-4xl font-bold text-center h-full flex flex-row items-center justify-center font-[family-name:var(--font-lexend)]"
+      className="text-4xl font-bold text-center flex flex-row items-center justify-center font-[family-name:var(--font-lexend)]"
     >
       {lines.map((word, index) => (
         <motion.span
           key={index}
-          className="inline-block mx-1 bg-clip-text text-transparent bg-gradient-to-r from-white to-white transition-all duration-100 h-20 text-center"
+          className="inline-block mx-1 bg-clip-text text-transparent bg-gradient-to-r from-white to-white transition-all duration-100 text-center h-16 cursor-default"
           initial={{ opacity: 0, y: 20, backgroundImage: "linear-gradient(to right, #701a75, #9333ea)" }}
           animate={{ opacity: 1, y: 0, backgroundImage: "linear-gradient(to right,rgb(255, 255, 255),rgb(255, 255, 255))" }}
           transition={{ delay: index * 0.05, duration: 0.3 }}
