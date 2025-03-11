@@ -7,15 +7,32 @@ import { motion } from "framer-motion";
 export default function Hero() {
   const title = "Hi I'm Tsiry!";
   return (
-    <section className="flex items-center justify-center w-full h-screen">
+    <motion.section
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 3, ease: "easeOut" }}
+      className="flex items-center justify-center w-full h-screen"
+      style={{
+        backgroundImage: "url('/tsiry-profile.png')",
+        backgroundSize: "contain",
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "-45%",
+        backgroundAttachment: "fixed",
+      }}
+    >
       <div className="flex flex-col gap-6 items-center justify-center w-full h-full">
         <div className="flex flex-col gap-2">
           <motion.h2
-            initial={{ opacity: 0, y: 20, backgroundImage: "linear-gradient(to right, #701a75, #9333ea)" }}
+            initial={{
+              opacity: 0,
+              y: 20,
+              backgroundImage: "linear-gradient(to right, #701a75, #9333ea)",
+            }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3, ease: "easeOut" }}
             whileHover={{
-              backgroundImage: "linear-gradient(to right,rgb(255, 255, 255),rgb(255, 255, 255))",
+              backgroundImage:
+                "linear-gradient(to right,rgb(255, 255, 255),rgb(255, 255, 255))",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
             }}
@@ -72,6 +89,6 @@ export default function Hero() {
           </motion.div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }
