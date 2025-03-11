@@ -1,17 +1,15 @@
 import Chat from "@/components/Chat/Chat";
+import Title from "@/components/Title/Title";
 
 export default function Home() {
   return (
     <main className="h-dvh">
-      <section className="flex flex-row gap-2 bg-red-300 h-full">
-        <section className="flex flex-col items-center justify-center bg-green-200 w-full">
-          <h1>Love turing Ideas into life</h1>
+      <section className="flex flex-row bg-radial from-slate-800 from-20% to-slate-950 h-full">
+        <section className="flex flex-col items-center justify-center w-full">
+          <Title />
         </section>
-        {/* CHAT */}
-        <section className="flex flex-col items-center justify-center bg-radial from-slate-800 from-20% to-slate-950 w-full">
-          <article className="flex flex-col items-center justify-center w-full h-full">
-            <Chat />
-          </article>
+        <section className="flex flex-col items-center justify-center w-full">
+          <Chat />
         </section>
       </section>
     </main>

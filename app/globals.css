@@ -4,6 +4,11 @@
   --shadow-purple-3xl: 0 10px 35px rgba(128, 0, 128, 0.25); /* Purple shadow */
 }
 
+:root {
+  --font-poppins: "Poppins";
+  --font-lexend: "Lexend";
+}
+
 /* CHAT STYLES */
 .bg-gradiant-primary{
   @apply bg-gradient-to-r from-fuchsia-900 to-purple-600;
