@@ -69,7 +69,6 @@ export async function POST(req: NextRequest) {
             - Date: Always ensure the provided date is valid (e.g., March 32 is not a valid date). If the user provides an invalid date, ask them to provide a valid one.
             - Time: Ensure the time is properly formatted (e.g., 5pm or 5:00 PM) and that the user specifies AM/PM correctly. 
             - Email: Make sure the provided email address is a valid format (e.g., example@email.com). If the email is invalid, ask the user to provide a valid one.
- 
           - Once all information is gathered, structure your question using **HTML tags**:
             - Use "<ul>" and "<li>" to list the following details:
               - date

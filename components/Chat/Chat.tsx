@@ -21,6 +21,15 @@ function Chat() {
     }
   }, [messages]);
 
+  const formatMessageWithLineBreaks = (message: string) => {
+    return message.split("\n").map((line, index) => (
+      <span key={index}>
+        {line}
+        {index < message.split("\n").length - 1 && <br />}
+      </span>
+    ));
+  };
+
   return (
     <motion.div
       initial="hidden"
@@ -32,7 +41,6 @@ function Chat() {
       viewport={{ once: true, amount: 0.2 }}
       className="flex flex-col gap-4 w-3/4 h-3/4 p-4 bg-gradient-to-r from-slate-950 to-slate-900 shadow-purple-3xl rounded-xl"
     >
-      {/* ANSWERS */}
       <div className="h-full p-4 overflow-auto no-scrollbar">
         {messages.map((message, i) => (
           <div
@@ -42,7 +50,7 @@ function Chat() {
           >
             <div className="flex justify-start mb-1">
               <div className="bg-slate-800 shadow-md p-2 rounded-lg max-w-3/4 text-fuchsia-200">
-                {message.question}
+                {formatMessageWithLineBreaks(message.question)}
               </div>
             </div>
             <div className="flex justify-end">

@@ -26,7 +26,8 @@ export default function useChat() {
 
   const askChat = async () => {
     if (!question.trim()) return;
-    const userMessage = { question, answer: "..." };
+    const formattedQuestion = question.replace(/\n/g, " - ");
+    const userMessage = { question: formattedQuestion, answer: "..." };
     setMessages((prevMessages) => [...prevMessages, userMessage]);
     setQuestion("");
     const url = `${baseUrl}/api/chat`;
@@ -66,8 +67,6 @@ export default function useChat() {
       setIsLoading(false);
     }
   };
-
-  console.log("bookingInfos", bookingInfos);
 
   const extractBookinginfos = (htmlString: string) => {
     const regex =
