@@ -3,7 +3,7 @@
 import { useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import useChat from "@/modules/clients/hooks/useChat";
-import InputField from "@core/ui/Fields/InputField/InputField";
+import TextareaField from "@/core/ui/Fields/TextareaField/TextareaField";
 import BasicButton from "@/core/ui/Button/BasicButton";
 import Icon from "@/core/ui/Icons/Icon";
 import PulseLoader from "react-spinners/PulseLoader";
@@ -21,6 +21,15 @@ function Chat() {
     }
   }, [messages]);
 
+  const formatMessageWithLineBreaks = (message: string) => {
+    return message.split("\n").map((line, index) => (
+      <span key={index}>
+        {line}
+        {index < message.split("\n").length - 1 && <br />}
+      </span>
+    ));
+  };
+
   return (
     <motion.div
       initial="hidden"
@@ -32,7 +41,6 @@ function Chat() {
       viewport={{ once: true, amount: 0.2 }}
       className="flex flex-col gap-4 w-3/4 h-3/4 p-4 bg-gradient-to-r from-slate-950 to-slate-900 shadow-purple-3xl rounded-xl"
     >
-      {/* ANSWERS */}
       <div className="h-full p-4 overflow-auto no-scrollbar">
         {messages.map((message, i) => (
           <div
@@ -42,7 +50,7 @@ function Chat() {
           >
             <div className="flex justify-start mb-1">
               <div className="bg-slate-800 shadow-md p-2 rounded-lg max-w-3/4 text-fuchsia-200">
-                {message.question}
+                {formatMessageWithLineBreaks(message.question)}
               </div>
             </div>
             <div className="flex justify-end">
@@ -74,7 +82,7 @@ function Chat() {
           visible: { opacity: 1, x: 0, transition: { duration: 0.5 } },
         }}
         viewport={{ once: true, amount: 0.2 }}
-        className="flex flex-row gap-2"
+        className="flex flex-row gap-2 items-end"
       >
         <motion.div
           initial="hidden"
@@ -86,10 +94,13 @@ function Chat() {
           viewport={{ once: true, amount: 0.2 }}
           className="w-full"
         >
-          <InputField
+          <TextareaField
             value={question}
             onValueChange={(value) => setQuestion(value)}
             variant="bordered"
+            minRows={1}
+            maxRows={3}
+            isDisabled={isLoading}
             classNames={{
               inputWrapper: "flex-1 border-2 border-fuchsia-900 rounded-2xl",
               input: "p-4 text-slate-500",

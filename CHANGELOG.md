@@ -1,24 +1,21 @@
 # Changelog
 
-## [0.1.0] - 2025-03-07  
+## [0.2.0] - 2025-03-10
 
 ### 🚀 Features
 
-- **Chat UI**: Created a basic user interface for the chat, including an input field and a send button.
-- **AI Chat Integration**: Implemented a POST route for sending messages to the AI, with further fine-tuning to improve prompt relevance.
-- **Supabase Integration**: Set up a Supabase client and created a bio table to store user data for personalized responses.
-- **Chat Context**: Introduced a context to handle message consistency and improve the chat experience.
-- **Chat Component**: Refactored the chat into a dedicated component and improved the `useChat` hook for better functionality.
-- **Loading Indicator**: Added a loading animation for AI-generated responses to enhance user feedback.
-- **Icons Component**: Created an `Icon` component using Lucide icons for a more polished UI.
+- **Booking Call**: Users can now book a call through the chat interface.
+- **Calendar Event Creation**: Added a workflow to add events to the personal calendar directly via the chat interface.
+- **Chatbot Conversation Context**: Enhanced the chatbot to adapt its conversation using the last 10 previous messages for better context.
+- **Textarea Input**: Replaced the user input field with a textarea to improve chat interactions and accommodate longer messages.
+- **Chatbot Data Validation**: The chatbot now checks data before sending requests to ensure accuracy.
+- **Error Handling**: Added error handling for calendar-related interactions in the `useChat` hook.
+  
+### 🐛 Fixes
 
-### 🎨 Styling
+- **Calendar Error Handling**: Resolved issues related to calendar errors and ensured proper handling within the `useChat` hook.
+- **Email Confirmation**: Fixed an issue where the event creator was not receiving email confirmation after creating an event.
 
-- **Chat UI Styling**: Enhanced the chat section's design, including gradient variables for buttons and inputs.
+### 🛠️ Internal Updates
 
-### ♻️ Refactoring
-
-- **Chat Prompt Optimization**: Fine-tuned the AI prompt logic to generate more relevant answers.
-- **Code Structure**: Improved organization of chat-related files for better maintainability.
-
-
+- **Booking Info Validation**: Implemented additional validation for booking information to ensure all data is correct before submission.
