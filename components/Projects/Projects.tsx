@@ -32,17 +32,28 @@ function Projects() {
                 objectFit="cover"
                 className="absolute inset-0 z-0 blur-xs opacity-50"
               />
-              <div className="relative z-10 p-4">
-                <h2 className="text-xl font-semibold text-white">
-                  {project.name} |{" "}
-                  <span className="text-base font-regular text-slate-600">
-                    {project.position}
+              <div className="flex flex-col gap-2 relative z-10 p-4">
+                <h2 className="text-xl font-semibold text-white ">
+                  {project.name}{" "}
+                  <span className="text-base font-regular text-slate-700 drop-shadow-md">
+                  | {project.position}
                   </span>
                 </h2>
-                <p className="text-white text-sm">{project.description}</p>
-                {project.stack.map((el, j) => {
-                  return <div key={j}>{el}</div>;
-                })}
+                <p className="text-white text-sm line-clamp-3">{project.description}</p>
+                <div className="flex flex-wrap gap-2">
+                  {project.stack.map((el, j) => {
+                    return (
+                      <div
+                        key={j}
+                        className={
+                          "bg-slate-800 p-2 h-fittext-slate-300 text-xs text-slate-500 rounded-full"
+                        }
+                      >
+                        {el}
+                      </div>
+                    );
+                  })}
+                </div>
               </div>
             </div>
           </motion.article>
