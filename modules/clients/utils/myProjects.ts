@@ -33,7 +33,7 @@ const myProjects = [
       "Develop a mobile app version to improve accessibility and usability.",
       "Integrate gamification to boost engagement, including rewards, challenges, and progress tracking.",
     ],
-    link: "www.grindpal.org",
+    externalLink: "https://grindpal.org/",
     internalLink: "/projects/grindpal"
   },
   {

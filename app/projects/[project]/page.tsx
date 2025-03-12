@@ -1,50 +1,56 @@
 "use client";
 
 import { useParams } from "next/navigation";
-import Image from "next/image";
+import BasicButton from "@/core/ui/Button/BasicButton";
 import myProjects from "@/modules/clients/utils/myProjects";
+import Icon from "@/core/ui/Icons/Icon";
 
 function ProjectPage() {
-  const params = useParams<{ project: string }>()
+  const params = useParams<{ project: string }>();
   const project = myProjects.find(
     (project) => project.name.toLowerCase() === params.project?.toLowerCase()
   );
-  console.log("params", params)
-  console.log("project",project)
 
   return (
-    <section className="project-page">
+    <section className="min-h-screen bg-radial from-slate-800 from-20% to-slate-950 relative p-8">
       {/* Project Header */}
-      <header className="project-header">
-        <h1 className="text-3xl font-semibold">{project?.name}</h1>
-        <div className="flex justify-between items-center text-lg text-gray-600">
-          <span>{project?.company}</span>
-          <span>{project?.duration}</span>
+      <header className="flex flex-col gap-2">
+        <div className="flex items-center ">
+          <h1 className="text-3xl font-bold bg-gradient-to-r from-purple-800 to-purple-500 text-transparent bg-clip-text">
+            {project?.name}
+          </h1>
+          <BasicButton
+            onPress={() => window.open(project?.externalLink)}
+            isIconOnly={true}
+            startContent={
+              <Icon
+                name="ExternalLink"
+                strokeWidth={2}
+                size={26}
+                color="white"
+              />
+            }
+          />
         </div>
+        <div className="flex items-center text-slate-400 gap-6">
+          <span className="text-lg font-semibold">{project?.position}</span>
+          <span className="text-lg">{project?.company}</span>
+          <span className="text-lg">{project?.duration}</span>
+        </div>
+        <p className="text-slate-400">{project?.description}</p>
       </header>
 
-      {/* Project Image */}
-      <div className="project-image my-6">
-        <Image
-          src={project?.image}
-          width={400}
-          height={400}
-          alt={`${project?.name} project`}
-          className="w-full h-auto rounded-md shadow-lg"
-        />
-      </div>
-
       {/* Project Summary */}
-      <div className="project-summary mb-8">
-        <p>{project?.description}</p>
-      </div>
+      <div className="project-summary mb-8"></div>
 
       {/* Project Features */}
       <div className="project-tasks mb-8">
-        <h2 className="text-2xl font-medium">What I Did</h2>
+        <h2 className="text-2xl font-medium bg-gradient-to-r from-purple-800 to-purple-500 text-transparent bg-clip-text">
+          Main Features
+        </h2>
         <ul className="list-disc pl-6">
           {project?.features.map((feature, i) => (
-            <li key={i} className="text-gray-700">
+            <li key={i} className="text-slate-400">
               {feature}
             </li>
           ))}
@@ -53,10 +59,12 @@ function ProjectPage() {
 
       {/* Project Tasks */}
       <div className="project-tasks mb-8">
-        <h2 className="text-2xl font-medium">What I Did</h2>
+        <h2 className="text-2xl font-medium bg-gradient-to-r from-purple-800 to-purple-500 text-transparent bg-clip-text">
+          Main Tasks
+        </h2>
         <ul className="list-disc pl-6">
           {project?.tasks.map((task, i) => (
-            <li key={i} className="text-gray-700">
+            <li key={i} className="text-slate-400">
               {task}
             </li>
           ))}
@@ -66,10 +74,12 @@ function ProjectPage() {
       {/* What's Next Section */}
       {project?.nextSteps && (
         <div className="project-next-steps mb-8">
-          <h2 className="text-2xl font-medium">What&apos;s Next</h2>
+          <h2 className="text-2xl font-medium bg-gradient-to-r from-purple-800 to-purple-500 text-transparent bg-clip-text">
+            What&apos;s Next
+          </h2>
           <ul className="list-disc pl-6">
             {project.nextSteps.map((step, i) => (
-              <li key={i} className="text-gray-700">
+              <li key={i} className="text-slate-400">
                 {step}
               </li>
             ))}
