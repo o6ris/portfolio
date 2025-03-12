@@ -5,6 +5,7 @@ import Image from "next/image";
 import myProjects from "@/modules/clients/utils/myProjects";
 
 function Projects() {
+
   return (
     <section className="grid grid-flow-col grid-rows-2 gap-6">
       {myProjects.map((project, i) => {
@@ -13,6 +14,8 @@ function Projects() {
             key={i}
             initial="hidden"
             whileInView="visible"
+            whileHover={{ scale: 1.1 }}
+            transition={{ duration: 5 }} // Slow scale-up over 5s
             variants={{
               hidden: { opacity: 0, scale: 0.8 },
               visible: {
@@ -22,7 +25,7 @@ function Projects() {
               },
             }}
             viewport={{ once: true, amount: 0.8 }}
-            className="bg-red-800 h-56 p-2 w-lg rounded-lg shadow-lg bg-gradiant-primary shadow-purple-3xl"
+            className="bg-red-800 h-56 p-2 w-lg rounded-lg shadow-lg bg-gradiant-primary shadow-purple-3xl cursor-pointer"
           >
             <div className="relative p-4 h-full rounded-sm overflow-hidden bg-slate-950">
               <Image
@@ -36,10 +39,12 @@ function Projects() {
                 <h2 className="text-xl font-semibold text-white ">
                   {project.name}{" "}
                   <span className="text-base font-regular text-slate-700 drop-shadow-md">
-                  | {project.position}
+                    | {project.position}
                   </span>
                 </h2>
-                <p className="text-white text-sm line-clamp-3">{project.description}</p>
+                <p className="text-white text-sm line-clamp-3">
+                  {project.description}
+                </p>
                 <div className="flex flex-wrap gap-2">
                   {project.stack.map((el, j) => {
                     return (
