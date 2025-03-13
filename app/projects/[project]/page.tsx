@@ -1,6 +1,7 @@
 "use client";
 
 import { useParams } from "next/navigation";
+import Link from "next/link";
 import BasicButton from "@/core/ui/Button/BasicButton";
 import myProjects from "@/modules/clients/utils/myProjects";
 import Icon from "@/core/ui/Icons/Icon";
@@ -16,6 +17,7 @@ function ProjectPage() {
       {/* Project Header */}
       <header className="flex flex-col gap-2">
         <div className="flex items-center ">
+          <Link className="mr-8" href={"/"}><Icon name="MoveLeft" strokeWidth={2} size={26} color="white"/></Link>
           <h1 className="text-3xl font-bold bg-gradient-to-r from-purple-800 to-purple-500 text-transparent bg-clip-text">
             {project?.name}
           </h1>
