@@ -208,17 +208,21 @@ export default function useChat() {
   }, [messages]);
 
   useEffect(() => {
-    setTimeout(() => {
-      setMessages((prevMessages) => [
-        ...prevMessages,
-        {
-          question: "",
-          answer:
-            "<p>Hi there! <strong>I'm virtual Tsiry.</strong></p> <p>You can ask me anything about my skills, experience, or projects.</p> <p>Feel free to start with something like <strong>'What do you do?'</strong> or <strong>'Tell me about your projects!'</strong></p> <p>You can also <strong>book a call with me</strong> if you want to</p>",
-        },
-      ]);
-    }, 2000);
-  }, []);
+    if (
+      messages.length === 0 ||
+      !messages[0].answer.includes("Feel free to start with something like")
+    )
+      setTimeout(() => {
+        setMessages((prevMessages) => [
+          ...prevMessages,
+          {
+            question: "",
+            answer:
+              "<p>Hi there! <strong>I'm virtual Tsiry.</strong></p> <p>You can ask me anything about my skills, experience, or projects.</p> <p>Feel free to start with something like <strong>'What do you do?'</strong> or <strong>'Tell me about your projects!'</strong></p> <p>You can also <strong>book a call with me</strong> if you want to</p>",
+          },
+        ]);
+      }, 2000);
+  }, [messages]);
 
   return {
     askChat,
