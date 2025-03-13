@@ -45,7 +45,7 @@ function Projects() {
                   </span>
                 </h2>
                 <p className="text-white text-sm line-clamp-3">
-                  {project.description}
+                  {project.summary}
                 </p>
                 <div className="flex flex-wrap gap-2">
                   {project.stack.map((el, j) => {

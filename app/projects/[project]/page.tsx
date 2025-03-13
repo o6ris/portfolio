@@ -32,9 +32,9 @@ function ProjectPage() {
             }
           />
         </div>
-        <div className="flex items-center text-slate-400 gap-6">
-          <span className="text-lg font-semibold">{project?.position}</span>
-          <span className="text-lg">{project?.company}</span>
+        <div className="flex items-center text-slate-400 gap-1">
+          <span className="text-lg font-semibold">{project?.position} |</span>
+          <span className="text-lg">{project?.company} |</span>
           <span className="text-lg">{project?.duration}</span>
         </div>
         <p className="text-slate-400">{project?.description}</p>
@@ -60,7 +60,7 @@ function ProjectPage() {
       {/* Project Tasks */}
       <div className="project-tasks mb-8">
         <h2 className="text-2xl font-medium bg-gradient-to-r from-purple-800 to-purple-500 text-transparent bg-clip-text">
-          Main Tasks
+          My key contributions
         </h2>
         <ul className="list-disc pl-6">
           {project?.tasks.map((task, i) => (
