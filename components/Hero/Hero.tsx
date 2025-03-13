@@ -6,6 +6,13 @@ import { motion } from "framer-motion";
 
 export default function Hero() {
   const title = "Hi I'm Tsiry!";
+
+  const scrollToProjects = () => {
+    const projectsSection = document.getElementById("projects");
+    if (projectsSection) {
+      projectsSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
   return (
     <motion.section
       initial={{ opacity: 0 }}
@@ -85,6 +92,7 @@ export default function Hero() {
               className="bg-gradiant-primary rounded-2xl shadow-lg shadow-fuchsia-900/50 text-white"
               variant="bordered"
               content="Projects"
+              onPress={scrollToProjects}
             />
           </motion.div>
         </div>

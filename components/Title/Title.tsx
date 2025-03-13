@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 
 function Title() {
-  const title = "Love turning Ideas to life";
+  const title = "I Love turning Ideas to life";
   const lines = title.split(" ");
   return (
     <motion.h1

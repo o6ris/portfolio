@@ -1,0 +1,137 @@
+const myProjects = [
+  {
+    name: "Grindpal",
+    position: "Full stack Web developer",
+    summary:
+      "Web application designed for seamless workout tracking. Log workouts effortlessly, monitor progress over time, and analyze performance through interactive charts, all in one platform.",
+    description:
+      "GrindPal is a personalized workout-tracking web application designed to replace traditional spreadsheet logging with a more intuitive and visual experience. As a fitness enthusiast, I used to log my reps, weights, and sets in a table sheet, which helped me optimize my training but was tedious to maintain. GrindPal streamlines this process, making tracking faster, more user-friendly, and interactive.Beyond just logging workouts, the app provides insights into progress with interactive graphs, helping users adjust their training plan effectively—whether it’s adding reps, increasing weights, or deloading when necessary.",
+    image: "/grindpal.jpg",
+    stack: ["Javascript", "Next.js", "Node.js", "MongoDB", "NextAuth"],
+    duration: "4 months",
+    company: "Personal Project",
+    features: [
+      "Workout Logging: Easily track sets, reps, and weights for each exercise.",
+      "Progress Charts: Visualize strength progression over time using interactive graphs and track total volume.",
+      "Exercise Database: Includes a list of exercises with muscles filtering options and search option.",
+      "User Authentication: Secure login system using NextAuth and Oauth with Google provider.",
+      "Customizable Workouts: User can Create, Edit or Delete personalized workout templates.",
+      "Responsive Design: Optimized for mobile.",
+    ],
+    tasks: [
+      "Built the entire web app from scratch using Next.js to maximize maintainability.",
+      "Designed and implemented the database schema using MongoDB to efficiently store data like user workouts and progress.",
+      "Created a fully functional authentication system with NextAuth to allow secure user login and registration.",
+      "Set up middleware to restrict access to protected routes for authenticated users only",
+      "Implemented interactive data visualization using Chart.js to help users analyze their workout trends over time.",
+      "Integrated Supabase for image storage to store workout-related images.",
+      "Enhanced state management by leveraging React Context API to maintain a smooth and responsive UI.",
+      "Implemented a debounce function in search inputs to optimize performance when selecting exercises.",
+      "Optimized API routes with Next.js API handlers to ensure fast and scalable backend performance.",
+    ],
+    nextSteps: [
+      "Implement a guided workout session creator using a Q&A form to help users build personalized workouts.",
+      "Introduce social features like sharing workouts and progress with friends.",
+      "Develop a mobile app version to improve accessibility and usability.",
+      "Integrate gamification to boost engagement, including rewards, challenges, and progress tracking.",
+    ],
+    externalLink: "https://grindpal.org/",
+    internalLink: "/projects/grindpal",
+  },
+  {
+    name: "LUO",
+    position: "Full-Stack Web Developer",
+    summary:
+      "A rental management web application that helps users track rentals, manage notifications, and visualize rental data with interactive charts.",
+    description:
+      "At Point Vermeille, I contributed to the development and maintenance of LUO Gestion, a web platform designed to streamline property lease management for landlords and property managers. The platform automates key administrative tasks such as lease creation, payment tracking, and tenant interactions while ensuring legal compliance. It also features secure document storage and real-time financial insights to enhance efficiency and simplify rental management. I worked in a Scrum environment as part of a team of four: one lead developer handling the backend, two developers (including myself) focusing on front-end development, and one developer who also acted as a project manager. My primary role was optimizing the front-end experience, improving performance, and implementing key features, while also assisting the lead developer with backend tasks when needed to ensure smooth integration between the interface and core functionalities.",
+    features: [
+      "Automated Lease Creation: Generate legally compliant lease agreements tailored to individual property details and tenant information.",
+      "Tenant Management: Maintain organized records of tenant information, rental terms, and communication history.",
+      "Payment Tracking: Monitor rent payments, set up reminders for due dates, and manage arrears effectively.",
+      "Document Storage: Securely store and access essential documents, such as lease agreements and inspection reports, in a centralized location.",
+      "Maintenance Requests: Allow tenants to submit maintenance requests online, facilitating prompt responses and tracking.",
+      "Reporting and Analytics: Generate financial reports and gain insights into property performance to make informed decisions.",
+    ],
+    tasks: [
+      "Contributed to the complete overhaul of LUO, migrating the front-end from React to Next.js and improving performance and user experience.",
+      "Implemented a debounced search feature for tenant contracts, optimizing filtering based on multiple criteria such as dates, names, and more.",
+      "Developed a robust notification system and integrated FullCalendar to streamline event tracking and deadline management.",
+      "Created interactive charts using Chart.js to provide visual insights for better rental and financial management.",
+      "Helped set up data caching with SWR to enhance performance and improve user experience.",
+    ],
+    image: "/luo.webp",
+    stack: ["Typescript", "Next.js", "React.js", "MongoDB", "NextAuth"],
+    duration: "1 year and 4 months",
+    company: "Point Vermeille",
+    externalLink: "https://luogestion.fr/",
+    internalLink: "/projects/luo",
+  },
+  {
+    name: "LSA",
+    position: "Front-End Web Developer",
+    summary:
+      "An insurance aggregator web app that streamlines contract creation, integrates a shopping cart system, and automates proposal generation via PDF export.",
+    description:
+      "At Point Vermeille, I contributed to the development and maintenance of LSA, a custom-built web application designed to streamline insurance contract creation and automate proposal generation. The platform allows LSA agents to collect client data through an optimized form, retrieve competitive insurance offers via API integrations, and generate contracts efficiently. Working alongside Corentin, the lead developer, I focused on enhancing the front-end experience, while he managed the backend (Python, Redis) and insurance API integrations.",
+    image: "/lsa.jpeg",
+    stack: ["React.js", "Python", "Google Drive API"],
+    duration: "1 year and 4 months",
+    company: "Point Vermeille",
+    features: [
+      "Partner Management System: Enables partner shops to redirect potential clients to LSA for insurance offers.",
+      "Contract Creation Form: A comprehensive form that collects client data, logs information, and generates insurance requests.",
+      "Automated Insurance Quote Retrieval: Fetches multiple insurance offers via API and presents the top options based on client data.",
+      "Assisted Offer Selection: Enables LSA agents to manually refine and select the best five offers based on client preferences and context.",
+      "Contract Management & PDF Export: Allows the team to finalize contracts and export them as PDFs for official documentation.",
+      "Client & Partner Activity Tracking: Logs interactions, form submissions, and partner referrals for better analytics and reporting.",
+      "Secure Authentication & Access Control: Ensures only authorized personnel can create, manage, and finalize contracts.",
+      "Google Drive API Integration: Stores insurance documents securely for future reference and compliance.",
+      "Real-Time Notifications & Status Updates: Keeps the team informed about client progress, contract approvals, and pending actions.",
+    ],
+    tasks: [
+      "Enhanced the client data collection form with improved UI/UX for seamless usability and integrated React Context API for data consistency.",
+      "Implemented automated PDF generation for contract creation using Python and Google Drive API, streamlining document management.",
+      "Developed a shopping cart system with real-time updates, enabling insurance plan comparisons while ensuring data consistency using local storage.",
+      "Optimized API calls and state management by deferring state updates until input focus-out, reducing unnecessary re-renders and ensuring API efficiency.",
+      "Refactored legacy components to improve modularity, maintainability, and reusability across the application.",
+    ],
+    externalLink: "https://salamandre-assurances.fr/",
+    internalLink: "/projects/lsa",
+  },
+  {
+    name: "Portfolio",
+    position: "Front-end Web developer",
+    summary:
+      "An interactive showcase of my work, featuring a chatbot version of me that streams real-time responses and call booking. Includes smooth animations, projects showcase and more.",
+    description:
+      "My personal portfolio is an interactive and AI-enhanced platform designed to showcase my projects, skills, and experiences. It features a custom AI-powered chatbot that streams real-time responses, answers questions about my work, and even books calls directly via Google Calendar integration.",
+    image: "/portfolio.jpg",
+    stack: ["Typescript", "Next.js", "React.js", "AI"],
+    duration: "1 week",
+    company: "Personal Project",
+    features: [
+      "Chatbot that streams real-time responses like it was me.",
+      "Call booking system integrated into the chatbot.",
+      "Project showcase with interactive UI and smooth animations.",
+    ],
+    tasks: [
+      "Integrated Mistral AI and fine-tuned it using my securely stored bio in Supabase to personalize chatbot responses.",
+      "Designed a structured system prompt to provide context, ensure proper behavior, and manage conversation history effectively.",
+      "Implemented AI response streaming for a real-time, smooth user experience using Next.js API routes.",
+      "Integrated Google Calendar API to check availability and allow users to book calls seamlessly via the chatbot.",
+      "Developed a persistent chatbot context using React Context API, ensuring conversation continuity across pages.",
+      "Used Framer Motion for dynamic text animations, including a staggered effect on hover and smooth transitions on page load.",
+      "Optimized Next.js routing with shallow routing and dynamic imports to improve performance and navigation speed.",
+      "Implemented structured metadata and Open Graph tags for improved SEO and better link previews when shared online.",
+    ],
+    nextSteps: [
+      "Develop a backend to store and manage user inquiries, enabling better follow-ups and chatbot personalization.",
+      "Create a dedicated backend for project data management, including a REST API and an admin dashboard for effortless updates.",
+    ],
+    externalLink: "/",
+    internalLink: "/projects/portfolio",
+  },
+];
+
+export default myProjects;
