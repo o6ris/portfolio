@@ -7,12 +7,13 @@ import { motion } from "framer-motion";
 export default function Hero() {
   const title = "Hi I'm Tsiry!";
 
-  const scrollToProjects = () => {
-    const projectsSection = document.getElementById("projects");
+  const scrollToProjects = (id:string) => {
+    const projectsSection = document.getElementById(id);
     if (projectsSection) {
       projectsSection.scrollIntoView({ behavior: "smooth" });
     }
   };
+
   return (
     <motion.section
       initial={{ opacity: 0 }}
@@ -70,6 +71,7 @@ export default function Hero() {
               className="border border-2 border-fuchsia-900 rounded-2xl shadow-lg shadow-fuchsia-900/50 text-fuchsia-900"
               variant="bordered"
               content="About me"
+              onPress={()=>scrollToProjects("about-me")}
             />
           </motion.div>
           <motion.div
@@ -92,7 +94,7 @@ export default function Hero() {
               className="bg-gradiant-primary rounded-2xl shadow-lg shadow-fuchsia-900/50 text-white"
               variant="bordered"
               content="Projects"
-              onPress={scrollToProjects}
+              onPress={()=>scrollToProjects("projects")}
             />
           </motion.div>
         </div>
