@@ -1,15 +1,14 @@
-# Changelog
+# Changelog  
 
-## [0.5.0] - 2025-03-13
+## [0.6.0] - 2025-03-13  
 
-### 🚀 Features
+### 🚀 Features  
 
-- **Projects Section**: Created a new `Projects` section, allowing users to explore my work.
-- **Navigation**: Users can now navigate to the `Projects` section by clicking a button.
-- **Projects Data**: Added a JSON file to store project information dynamically.
-- **Project Details Page**: Introduced a dedicated page for each project to display more details.
-- **External Links**: Added a button on the project details page to navigate to external project links.
+- **About Me Section**: Created an `About Me` section to showcase my journey and background.  
+- **Navigation Enhancement**: Clicking the "About Me" button now scrolls smoothly to the section.  
+- **Timeline Component**: Implemented a timeline to visually represent key milestones in my career.  
+- **Hobbies Section**: Added a dedicated `Hobbies` section to highlight my passions outside of web development.  
 
-### 🎨 UI Improvements
+### 🎨 UI Improvements  
 
-- **Hover Animation**: Added an `onHover` animation to project car
+- **Article Animations**: Each article in the `About Me` section now animates on scroll for a dynamic feel.  
