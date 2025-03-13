@@ -1,8 +1,30 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 function AboutMe() {
+  const [scrollY, setScrollY] = useState(0);
+  const [documentHeight, setDocumentHeight] = useState(0);
+
+  // Update scrollY on scroll
+  const handleScroll = () => {
+    setScrollY(window.scrollY);
+  };
+
+  useEffect(() => {
+    setDocumentHeight(
+      document.documentElement.scrollHeight - window.innerHeight
+    );
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  const height = Math.min((scrollY / documentHeight) * 100, 100);
+
   return (
     <section className="flex flex-col gap-6 p-20">
       <h2 className="text-3xl font-bold bg-gradient-to-r from-purple-800 to-purple-500 text-transparent bg-clip-text">
@@ -10,7 +32,12 @@ function AboutMe() {
       </h2>
       {/* ORIGINS */}
       <section className="grid grid-cols-2 items-center gap-12 relative">
-        <div className="absolute top-0 left-1/2 transform -translate-x-1/2 h-full bg-gradient-to-b from-purple-800 to-purple-500 w-4 rounded-full shadow-purple-3xl"></div>
+        <motion.div
+          className="absolute top-0 left-1/2 transform -translate-x-1/2 bg-gradient-to-b from-purple-800 to-purple-500 w-4 rounded-full shadow-purple-3xl"
+          animate={{ height: `${height}%` }}
+          initial={{ height: 0 }}
+          transition={{ duration: 2 }}
+        />
         <motion.article
           initial="hidden"
           whileInView="visible"
@@ -100,7 +127,7 @@ function AboutMe() {
             became Content Manager, leading a team of 3. I was also in charge of
             the YouTube channel, where I:
           </p>
-          <ul>
+          <ul className="list-disc list-inside">
             <li>
               Produced high-quality photo & video tutorials to make tech repairs
               more accessible.
@@ -151,7 +178,7 @@ function AboutMe() {
             In 2023, I worked for Point Vermeille (France) for over a year as a
             Web Developer, where I:
           </p>
-          <ul>
+          <ul className="list-disc list-inside">
             <li>
               Helped rebuilt an existing web app using Next.js to improve
               performance and backend logic.
