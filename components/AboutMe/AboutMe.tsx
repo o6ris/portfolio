@@ -1,3 +1,7 @@
+"use client";
+
+import { motion } from "framer-motion";
+
 function AboutMe() {
   return (
     <section className="flex flex-col gap-6 p-20">
@@ -7,7 +11,20 @@ function AboutMe() {
       {/* ORIGINS */}
       <section className="grid grid-cols-2 items-center gap-12 relative">
         <div className="absolute top-0 left-1/2 transform -translate-x-1/2 h-full bg-gradient-to-b from-purple-800 to-purple-500 w-4 rounded-full shadow-purple-3xl"></div>
-        <article className="flex flex-col gap-2">
+        <motion.article
+          initial="hidden"
+          whileInView="visible"
+          variants={{
+            hidden: { opacity: 0, scale: 0.8 },
+            visible: {
+              opacity: 1,
+              scale: 1,
+              transition: { duration: 0.5, delay: 0.2 },
+            },
+          }}
+          viewport={{ once: true, amount: 0.8 }}
+          className="flex flex-col gap-2"
+        >
           <h3 className="text-xl font-bold text-slate-400">
             Origins: From Madagascar to France
           </h3>
@@ -17,21 +34,58 @@ function AboutMe() {
             and French cultures shaped my perspective and opened my mind, making
             me more respectful of the world and different human thoughts.
           </p>
-        </article>
-        <article>
+        </motion.article>
+        <motion.article
+          initial="hidden"
+          whileInView="visible"
+          variants={{
+            hidden: { opacity: 0, scale: 0.8 },
+            visible: {
+              opacity: 1,
+              scale: 1,
+              transition: { duration: 0.5, delay: 0.2 },
+            },
+          }}
+          viewport={{ once: true, amount: 0.8 }}
+        >
           <div>
             <p className="text-5xl font-black">1991 - 2009</p>
           </div>
-        </article>
+        </motion.article>
         {/* </section> */}
 
         {/* 1rst CARRERE */}
-        <article>
+        <motion.article
+          initial="hidden"
+          whileInView="visible"
+          variants={{
+            hidden: { opacity: 0, scale: 0.8 },
+            visible: {
+              opacity: 1,
+              scale: 1,
+              transition: { duration: 0.5, delay: 0.2 },
+            },
+          }}
+          viewport={{ once: true, amount: 0.8 }}
+        >
           <div className="flex justify-end">
             <p className="text-5xl font-black">2010 - 2022</p>
           </div>
-        </article>
-        <article className="flex flex-col gap-2">
+        </motion.article>
+        <motion.article
+          initial="hidden"
+          whileInView="visible"
+          variants={{
+            hidden: { opacity: 0, scale: 0.8 },
+            visible: {
+              opacity: 1,
+              scale: 1,
+              transition: { duration: 0.5, delay: 0.2 },
+            },
+          }}
+          viewport={{ once: true, amount: 0.8 }}
+          className="flex flex-col gap-2"
+        >
           <h3 className="text-xl font-bold text-slate-400">
             The Creative Journey: From Cameras to Content
           </h3>
@@ -61,10 +115,23 @@ function AboutMe() {
               Illustrator, and Prestashop.
             </li>
           </ul>
-        </article>
+        </motion.article>
 
         {/* 2nd CARRERE */}
-        <article className="flex flex-col gap-2">
+        <motion.article
+          initial="hidden"
+          whileInView="visible"
+          variants={{
+            hidden: { opacity: 0, scale: 0.8 },
+            visible: {
+              opacity: 1,
+              scale: 1,
+              transition: { duration: 0.5, delay: 0.2 },
+            },
+          }}
+          viewport={{ once: true, amount: 0.8 }}
+          className="flex flex-col gap-2"
+        >
           <h3 className="text-xl font-bold text-slate-400">
             Transition to Web Development: A New Challenge
           </h3>
@@ -107,19 +174,56 @@ function AboutMe() {
               chat if you&apos;re curious!
             </li>
           </ul>
-        </article>
-        <article>
+        </motion.article>
+        <motion.article
+          initial="hidden"
+          whileInView="visible"
+          variants={{
+            hidden: { opacity: 0, scale: 0.8 },
+            visible: {
+              opacity: 1,
+              scale: 1,
+              transition: { duration: 0.5, delay: 0.2 },
+            },
+          }}
+          viewport={{ once: true, amount: 0.8 }}
+        >
           <p className="text-5xl font-black">2022 - 2024</p>
-        </article>
+        </motion.article>
 
         {/* OWN PROJECTS */}
 
-        <article>
+        <motion.article
+          initial="hidden"
+          whileInView="visible"
+          variants={{
+            hidden: { opacity: 0, scale: 0.8 },
+            visible: {
+              opacity: 1,
+              scale: 1,
+              transition: { duration: 0.5, delay: 0.2 },
+            },
+          }}
+          viewport={{ once: true, amount: 0.8 }}
+        >
           <div className="flex justify-end">
             <p className="text-5xl font-black">2024 - 2025</p>
           </div>
-        </article>
-        <article className="flex flex-col gap-2">
+        </motion.article>
+        <motion.article
+          initial="hidden"
+          whileInView="visible"
+          variants={{
+            hidden: { opacity: 0, scale: 0.8 },
+            visible: {
+              opacity: 1,
+              scale: 1,
+              transition: { duration: 0.5, delay: 0.2 },
+            },
+          }}
+          viewport={{ once: true, amount: 0.8 }}
+          className="flex flex-col gap-2"
+        >
           <h3 className="text-xl font-bold text-slate-400">
             Building My Own Projects
           </h3>
@@ -143,21 +247,46 @@ function AboutMe() {
             or feel free to book a call with me through the chat if you&apos;re
             curious!
           </p>
-        </article>
+        </motion.article>
         {/* </section> */}
 
         {/* NEW LIFE */}
-        <article className="flex flex-col gap-2">
+        <motion.article
+          initial="hidden"
+          whileInView="visible"
+          variants={{
+            hidden: { opacity: 0, scale: 0.8 },
+            visible: {
+              opacity: 1,
+              scale: 1,
+              transition: { duration: 0.5, delay: 0.2 },
+            },
+          }}
+          viewport={{ once: true, amount: 0.8 }}
+          className="flex flex-col gap-2"
+        >
           <h3 className="text-xl font-bold text-slate-400">New life</h3>
           <p>
             Now based in Calgary, Canada for at least 2 years on a working
             holiday program, I&apos;m excited to keep learning, building, and
             bringing ideas to life. 🚀
           </p>
-        </article>
-        <article>
+        </motion.article>
+        <motion.article
+          initial="hidden"
+          whileInView="visible"
+          variants={{
+            hidden: { opacity: 0, scale: 0.8 },
+            visible: {
+              opacity: 1,
+              scale: 1,
+              transition: { duration: 0.5, delay: 0.2 },
+            },
+          }}
+          viewport={{ once: true, amount: 0.8 }}
+        >
           <p className="text-5xl font-black">2025 - ????</p>
-        </article>
+        </motion.article>
       </section>
     </section>
   );
