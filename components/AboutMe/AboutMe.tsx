@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import Hobbies from "../Hobbies/Hobbies";
 
 function AboutMe() {
   const [scrollY, setScrollY] = useState(0);
@@ -36,7 +37,7 @@ function AboutMe() {
           className="absolute top-0 left-1/2 transform -translate-x-1/2 bg-gradient-to-b from-purple-800 to-purple-500 w-4 rounded-full shadow-purple-3xl"
           animate={{ height: `${height}%` }}
           initial={{ height: 0 }}
-          transition={{ duration: 2 }}
+          transition={{ duration: 0.5 }}
         />
         <motion.article
           initial="hidden"
@@ -315,7 +316,12 @@ function AboutMe() {
           <p className="text-5xl font-black">2025 - ????</p>
         </motion.article>
       </section>
+      <h2 className="text-3xl font-bold bg-gradient-to-r from-purple-800 to-purple-500 text-transparent bg-clip-text mt-20">
+        Hobbies
+      </h2>
+      <Hobbies />
     </section>
+    
   );
 }
 

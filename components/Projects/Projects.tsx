@@ -27,7 +27,7 @@ function Projects() {
             }}
             viewport={{ once: true, amount: 0.8 }}
             onClick={() => router.push(project.internalLink)}
-            className="bg-red-800 h-56 p-2 w-lg rounded-lg shadow-lg bg-gradiant-primary shadow-purple-3xl cursor-pointer"
+            className="bg-red-800 h-56 p-1 w-lg rounded-lg bg-gradiant-primary shadow-purple-3xl cursor-pointer"
           >
             <div className="relative p-4 h-full rounded-sm overflow-hidden bg-slate-950">
               <Image
