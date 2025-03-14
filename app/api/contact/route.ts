@@ -7,7 +7,7 @@ const contactSchema = z.object({
   email: z.string().email("Invalid email address"),
   message: z
     .string()
-    .min(1, "Message is required")
+    .min(10, "Message is required")
     .max(500, "Message is too long"),
 });
 
