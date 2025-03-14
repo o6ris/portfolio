@@ -6,9 +6,9 @@ interface TextareaFieldProps {
   onValueChange?: (value: string) => void;
   placeholder?: string;
   variant?: "flat" | "bordered" | "faded" | "underlined";
-  minRows?: number,
-  maxRows?: number
-  isDisabled?: boolean,
+  minRows?: number;
+  maxRows?: number;
+  isDisabled?: boolean;
 }
 
 function TextareaField(props: TextareaFieldProps) {
