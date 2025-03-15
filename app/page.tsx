@@ -2,6 +2,7 @@ import Chat from "@/components/Chat/Chat";
 import Hero from "@/components/Hero/Hero";
 import Projects from "@/components/Projects/Projects";
 import AboutMe from "@/components/AboutMe/AboutMe";
+import Contact from "@/components/Contact/Contact";
 
 export default function Home() {
   return (
@@ -19,6 +20,9 @@ export default function Home() {
       </section>
       <section id="about-me" className="flex h-full justify-center pt-10">
         <AboutMe />
+      </section>
+      <section id="about-me" className="flex h-full justify-center pt-10">
+        <Contact />
       </section>
     </main>
   );
