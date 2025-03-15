@@ -2,9 +2,12 @@ import { useState } from "react";
 import { z } from "zod";
 
 const contactSchema = z.object({
-  name: z.string().min(1, "Name is required"), // Ensure name is not empty
-  email: z.string().email("Invalid email address"), // Validate email format
-  message: z.string().min(10, "Message must be at least 10 characters"), // Ensure message has a minimum length
+  name: z.string().min(1, "Name is required"),
+  email: z.string().email("Invalid email address"),
+  message: z
+    .string()
+    .min(10, "Message must be at least 10 characters")
+    .max(500, "Message is too long, 500 characters maximum"),
 });
 
 interface formDataProps {
@@ -19,7 +22,7 @@ export default function useContact() {
     email: "",
     message: "",
   });
-  const [errors, setErrors] = useState();
+  const [errors, setErrors] = useState<z.ZodIssue[]>([]);
   const baseUrl = process.env.NEXT_PUBLIC_API_URL;
 
   const formDataOnChange = (name: string, value: string) => {
@@ -44,7 +47,7 @@ export default function useContact() {
       }
     } catch (error) {
       if (error instanceof z.ZodError) {
-        setErrors(error.errors)
+        setErrors(error.errors);
       } else {
         console.error(error);
       }

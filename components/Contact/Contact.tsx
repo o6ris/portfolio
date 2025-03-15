@@ -25,7 +25,7 @@ function Contact() {
             }}
             value={formData.name}
             onValueChange={(value) => formDataOnChange("name", value)}
-            errorMessage={errors?.find((error) => error.path[0] === "name").message}
+            errorMessage={errors?.find((error) => error.path[0] === "name" )?.message}
           />
           <InputField
             placeholder="eg: john.mail.com"
@@ -37,7 +37,7 @@ function Contact() {
             }}
             value={formData.email}
             onValueChange={(value) => formDataOnChange("email", value)}
-            errorMessage={errors?.find((error) => error.path[0] === "email").message}
+            errorMessage={errors?.find((error) => error.path[0] === "email")?.message}
           />
         </div>
         <TextareaField
@@ -51,7 +51,7 @@ function Contact() {
             input: "p-4 text-slate-500",
           }}
           onValueChange={(value) => formDataOnChange("message", value)}
-          errorMessage={errors?.find((error) => error.path[0] === "message").message}
+          errorMessage={errors?.find((error) => error.path[0] === "message")?.message}
         />
         <div className="flex justify-end">
           <BasicButton
