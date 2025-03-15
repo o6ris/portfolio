@@ -7,7 +7,7 @@ import TextareaField from "@/core/ui/Fields/TextareaField/TextareaField";
 import BasicButton from "@/core/ui/Button/BasicButton";
 
 function Contact() {
-  const { sendMessage, formDataOnChange, formData } = useContact();
+  const { sendMessage, formDataOnChange, formData, errors } = useContact();
   return (
     <motion.section className="flex flex-col gap-6 px-20 pb-20 w-full">
       <h2 className="bg-gradient-to-r from-purple-800 to-purple-500 text-transparent bg-clip-text">
@@ -25,6 +25,7 @@ function Contact() {
             }}
             value={formData.name}
             onValueChange={(value) => formDataOnChange("name", value)}
+            errorMessage={errors?.find((error) => error.path[0] === "name").message}
           />
           <InputField
             placeholder="eg: john.mail.com"
@@ -36,6 +37,7 @@ function Contact() {
             }}
             value={formData.email}
             onValueChange={(value) => formDataOnChange("email", value)}
+            errorMessage={errors?.find((error) => error.path[0] === "email").message}
           />
         </div>
         <TextareaField
@@ -49,10 +51,11 @@ function Contact() {
             input: "p-4 text-slate-500",
           }}
           onValueChange={(value) => formDataOnChange("message", value)}
+          errorMessage={errors?.find((error) => error.path[0] === "message").message}
         />
         <div className="flex justify-end">
           <BasicButton
-            content="Envoyer"
+            content="Send"
             className="bg-gradiant-primary rounded-3xl shadow-lg shadow-fuchsia-900/50"
             onPress={sendMessage}
           />

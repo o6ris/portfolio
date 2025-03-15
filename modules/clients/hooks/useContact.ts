@@ -1,4 +1,11 @@
 import { useState } from "react";
+import { z } from "zod";
+
+const contactSchema = z.object({
+  name: z.string().min(1, "Name is required"), // Ensure name is not empty
+  email: z.string().email("Invalid email address"), // Validate email format
+  message: z.string().min(10, "Message must be at least 10 characters"), // Ensure message has a minimum length
+});
 
 interface formDataProps {
   name: string;
@@ -12,6 +19,7 @@ export default function useContact() {
     email: "",
     message: "",
   });
+  const [errors, setErrors] = useState();
   const baseUrl = process.env.NEXT_PUBLIC_API_URL;
 
   const formDataOnChange = (name: string, value: string) => {
@@ -19,6 +27,8 @@ export default function useContact() {
   };
   const sendMessage = async () => {
     try {
+      contactSchema.parse(formData);
+
       const url = `${baseUrl}/api/contact`;
       const response = await fetch(url, {
         method: "POST",
@@ -33,7 +43,11 @@ export default function useContact() {
         throw error;
       }
     } catch (error) {
-      console.error(error);
+      if (error instanceof z.ZodError) {
+        setErrors(error.errors)
+      } else {
+        console.error(error);
+      }
     }
   };
 
@@ -41,5 +55,6 @@ export default function useContact() {
     sendMessage,
     formDataOnChange,
     formData,
+    errors,
   };
 }
