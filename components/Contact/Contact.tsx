@@ -50,6 +50,8 @@ function Contact() {
             inputWrapper: "flex-1 border-2 border-slate-400 rounded-2xl",
             input: "p-4 text-slate-500",
           }}
+          value={formData.message}
+          isCharNumbDisplayed={true}
           onValueChange={(value) => formDataOnChange("message", value)}
           errorMessage={errors?.find((error) => error.path[0] === "message")?.message}
         />

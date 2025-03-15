@@ -11,6 +11,7 @@ interface TextareaFieldProps {
   maxRows?: number;
   isDisabled?: boolean;
   errorMessage?: ReactNode;
+  isCharNumbDisplayed?: boolean;
 }
 
 function TextareaField(props: TextareaFieldProps) {
@@ -26,9 +27,27 @@ function TextareaField(props: TextareaFieldProps) {
           ...(props.classNames || {}),
         }}
       />
-      {props.errorMessage && (
-        <span className="text-xs pl-2 text-red-600!">{props.errorMessage}</span>
-      )}
+      <div className="flex justify-between items-center">
+        {props.errorMessage && (
+          <span className="text-xs pl-2 w-full text-red-600!">
+            {props.errorMessage}
+          </span>
+        )}
+        {props.isCharNumbDisplayed && (
+          <div className="flex w-full justify-end">
+            <span
+              className={`text-xs pr-2 ${
+                (props.value?.length ?? 0) < 10 ||
+                (props.value?.length ?? 0) > 500
+                  ? "text-red-600!"
+                  : ""
+              }`}
+            >
+              {props.value?.length}/500
+            </span>
+          </div>
+        )}
+      </div>
     </div>
   );
 }
