@@ -1,8 +1,16 @@
 # Changelog  
 
-## [0.6.1] - 2025-03-13  
+## [0.7.1] - 2025-03-15  
+
+### 🚀 Features  
+
+- **Contact Route**: Added a new API route to send emails with validation using Zod.  
+- **Contact Form**: Created a contact form with validation using Zod.  
+- **useContact Hook**: Developed a custom hook to handle contact form logic.  
+- **Error Handling**: Thanks to validation, displaying errors on fields using Zod.  
+- **Textarea Field**: Implemented a character counter for the textarea field when necessary.  
 
 ### 🛠️ Fixes & Updates  
 
-- **Title Update**: Corrected a typo in the title.  
-- **Chatbot Improvement**: Fixed an issue where the first chatbot message appeared multiple times; it now displays only once.  
+- **PostCSS Configuration**: Upgraded PostCSS configuration and adjusted Tailwind classes for form styling.  
+
