@@ -34,10 +34,10 @@ function ProjectPage() {
             }
           />
         </div>
-        <div className="flex items-center text-slate-400 gap-1">
-          <span className="text-lg font-semibold">{project?.position} |</span>
-          <span className="text-lg">{project?.company} |</span>
-          <span className="text-lg">{project?.duration}</span>
+        <div className="flex flex-col gap-1 md:flex-row md:items-center">
+          <span className="text-lg font-semibold text-slate-600!">{project?.position} |</span>
+          <span className="text-lg text-slate-600!">{project?.company} |</span>
+          <span className="text-lg text-slate-600!">{project?.duration}</span>
         </div>
         <p className="text-slate-400">{project?.description}</p>
       </header>

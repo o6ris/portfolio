@@ -8,7 +8,7 @@ import myProjects from "@/modules/clients/utils/myProjects";
 function Projects() {
   const router = useRouter();
   return (
-    <section className="grid grid-flow-col grid-rows-2 gap-6">
+    <section className="p-2 grid gap-6 md:grid-flow-col md:grid-rows-2 ">
       {myProjects.map((project, i) => {
         return (
           <motion.article
@@ -27,9 +27,9 @@ function Projects() {
             }}
             viewport={{ once: true, amount: 0.8 }}
             onClick={() => router.push(project.internalLink)}
-            className="bg-red-800 h-56 p-1 w-lg rounded-lg bg-gradiant-primary shadow-purple-3xl cursor-pointer"
+            className="rounded-lg bg-gradiant-primary shadow-purple-3xl p-1 cursor-pointer xl:h-56 xl:w-lg"
           >
-            <div className="relative p-4 h-full rounded-sm overflow-hidden bg-slate-950">
+            <div className="relative h-full rounded-sm bg-slate-950 xl:p-4 ">
               <Image
                 src={project.image}
                 alt={project.name}

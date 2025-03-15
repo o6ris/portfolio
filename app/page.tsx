@@ -15,9 +15,9 @@ export default function Home() {
           <Chat />
         </section>
       </section>
-      {/* <section id="projects" className="flex h-full justify-center pt-10">
+      <section id="projects" className="flex h-full justify-center pt-10">
         <Projects />
-      </section> */}
+      </section>
       {/* <section id="about-me" className="flex h-full justify-center pt-10">
         <AboutMe />
       </section> */}
