@@ -5,7 +5,7 @@ import Icon from "@/core/ui/Icons/Icon";
 
 function Hobbies() {
   return (
-    <section className="grid grid-cols-4 gap-12">
+    <section className="grid gap-12 md:grid-cols-2 xl:grid-cols-3">
       <motion.article
         initial="hidden"
         whileInView="visible"
