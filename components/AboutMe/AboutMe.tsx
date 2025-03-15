@@ -5,58 +5,78 @@ import { motion } from "framer-motion";
 import Hobbies from "../Hobbies/Hobbies";
 
 function AboutMe() {
-  const [scrollY, setScrollY] = useState(0);
-  const [documentHeight, setDocumentHeight] = useState(0);
+  // TODO: Fix this one day
+  // const [scrollY, setScrollY] = useState(0);
+  // const [documentHeight, setDocumentHeight] = useState(0);
 
-  // Update scrollY on scroll
-  const handleScroll = () => {
-    setScrollY(window.scrollY);
-  };
+  // // Update scrollY on scroll
+  // const handleScroll = () => {
+  //   setScrollY(window.scrollY);
+  // };
+
+  // useEffect(() => {
+  //   setDocumentHeight(
+  //     document.documentElement.scrollHeight - window.innerHeight
+  //   );
+  //   window.addEventListener("scroll", handleScroll);
+
+  //   return () => {
+  //     window.removeEventListener("scroll", handleScroll);
+  //   };
+  // }, []);
+
+  // const height = Math.min((scrollY / documentHeight) * 100, 100);
+
+  const [isDesktop, setIsDesktop] = useState(window.innerWidth > 768);
 
   useEffect(() => {
-    setDocumentHeight(
-      document.documentElement.scrollHeight - window.innerHeight
-    );
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
+    const handleResize = () => {
+      setIsDesktop(window.innerWidth > 768);
     };
+
+    window.addEventListener("resize", handleResize);
+
+    // Cleanup event listener on component unmount
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const height = Math.min((scrollY / documentHeight) * 100, 100);
-
   return (
-    <section className="flex flex-col gap-6 p-20">
+    <section className="flex flex-col gap-6 p-2 md:p-10 lg:p-20">
       <h2 className="text-3xl font-bold bg-gradient-to-r from-purple-800 to-purple-500 text-transparent bg-clip-text">
         About me
       </h2>
       {/* ORIGINS */}
-      <section className="grid grid-cols-2 items-center gap-12 relative">
-        <motion.div
-          className="absolute top-0 left-1/2 transform -translate-x-1/2 bg-gradient-to-b from-purple-800 to-purple-500 w-4 rounded-full shadow-purple-3xl"
-          animate={{ height: `${height}%` }}
-          initial={{ height: 0 }}
-          transition={{ duration: 0.5 }}
-        />
+      <section className="grid items-center relative gap-4 md:gap-12 md:grid-cols-2 ">
+        <div
+          className="absolute h-full top-0 bg-gradient-to-b from-purple-800 to-purple-500 rounded-full shadow-purple-3xl md:w-4 md:left-1/2 md:transform md:-translate-x-1/2"
+          // animate={{ height: `${height}%` }}
+          // initial={{ height: 0 }}
+          // transition={{ duration: 0.5 }}
+        ></div>
         <motion.article
           initial="hidden"
           whileInView="visible"
           variants={{
-            hidden: { opacity: 0, scale: 0.8 },
+            hidden: { opacity: 0, scale: isDesktop ? 0.8 : 0 },
             visible: {
               opacity: 1,
               scale: 1,
-              transition: { duration: 0.5, delay: 0.2 },
+              transition: {
+                duration: isDesktop ? 0.5 : 0.3,
+                delay: isDesktop ? 0.2 : 0,
+              },
             },
           }}
-          viewport={{ once: true, amount: 0.8 }}
+          viewport={{ once: true, amount: 0.2 }}
           className="flex flex-col gap-2"
         >
-          <h3 className="text-xl font-bold text-slate-400">
-            Origins: From Madagascar to France
+          <h3 className="text-slate-400">
+            Origins: From Madagascar to France{" "}
+            <span className="text-sm text-slate-400!">
+              {!isDesktop && "(1991 - 2009)"}
+            </span>
           </h3>
-          <p>
+          <p className="text-sm text-slate-400!">
             I was born in Madagascar, where I spent my childhood before moving
             to France at 17 to pursue my studies. Growing up with both Malagasy
             and French cultures shaped my perspective and opened my mind, making
@@ -74,13 +94,14 @@ function AboutMe() {
               transition: { duration: 0.5, delay: 0.2 },
             },
           }}
-          viewport={{ once: true, amount: 0.8 }}
+          viewport={{ once: true, amount: 0.2 }}
         >
-          <div>
-            <p className="text-5xl font-black">1991 - 2009</p>
-          </div>
+          {isDesktop && (
+            <div>
+              <p className="text-5xl font-black">1991 - 2009</p>
+            </div>
+          )}
         </motion.article>
-        {/* </section> */}
 
         {/* 1rst CARRERE */}
         <motion.article
@@ -94,28 +115,36 @@ function AboutMe() {
               transition: { duration: 0.5, delay: 0.2 },
             },
           }}
-          viewport={{ once: true, amount: 0.8 }}
+          viewport={{ once: true, amount: 0.2 }}
         >
-          <div className="flex justify-end">
-            <p className="text-5xl font-black">2010 - 2022</p>
-          </div>
+          {isDesktop && (
+            <div className="flex justify-end">
+              <p className="text-5xl font-black">2010 - 2022</p>
+            </div>
+          )}
         </motion.article>
         <motion.article
           initial="hidden"
           whileInView="visible"
           variants={{
-            hidden: { opacity: 0, scale: 0.8 },
+            hidden: { opacity: 0, scale: isDesktop ? 0.8 : 0 },
             visible: {
               opacity: 1,
               scale: 1,
-              transition: { duration: 0.5, delay: 0.2 },
+              transition: {
+                duration: isDesktop ? 0.5 : 0.3,
+                delay: isDesktop ? 0.2 : 0,
+              },
             },
           }}
-          viewport={{ once: true, amount: 0.8 }}
+          viewport={{ once: true, amount: 0.2 }}
           className="flex flex-col gap-2"
         >
           <h3 className="text-xl font-bold text-slate-400">
-            The Creative Journey: From Cameras to Content
+            The Creative Journey: From Cameras to Content{" "}
+            <span className="text-sm text-slate-400!">
+              {!isDesktop && "(2010-2022)"}
+            </span>
           </h3>
           <p>
             My career began in audiovisual production, where I studied
@@ -150,18 +179,24 @@ function AboutMe() {
           initial="hidden"
           whileInView="visible"
           variants={{
-            hidden: { opacity: 0, scale: 0.8 },
+            hidden: { opacity: 0, scale: isDesktop ? 0.8 : 0 },
             visible: {
               opacity: 1,
               scale: 1,
-              transition: { duration: 0.5, delay: 0.2 },
+              transition: {
+                duration: isDesktop ? 0.5 : 0.3,
+                delay: isDesktop ? 0.2 : 0,
+              },
             },
           }}
-          viewport={{ once: true, amount: 0.8 }}
+          viewport={{ once: true, amount: 0.2 }}
           className="flex flex-col gap-2"
         >
           <h3 className="text-xl font-bold text-slate-400">
-            Transition to Web Development: A New Challenge
+            Transition to Web Development: A New Challenge{" "}
+            <span className="text-sm text-slate-400!">
+              {!isDesktop && "(2022-2024)"}
+            </span>
           </h3>
           <p>
             I didn&apos;t always love technology and problem-solving, but over
@@ -196,11 +231,11 @@ function AboutMe() {
               Implemented Google Drive API for PDF generation and improved state
               management with React Context API.
             </li>
-            <li>
-              More details about time in point Vermeille are available in the
-              Projects section, or feel free to book a call with me through the
-              chat if you&apos;re curious!
-            </li>
+            <br />
+            <p>
+              More details about my time in point Vermeille are available in the
+              Projects section!
+            </p>
           </ul>
         </motion.article>
         <motion.article
@@ -214,9 +249,9 @@ function AboutMe() {
               transition: { duration: 0.5, delay: 0.2 },
             },
           }}
-          viewport={{ once: true, amount: 0.8 }}
+          viewport={{ once: true, amount: 0.2 }}
         >
-          <p className="text-5xl font-black">2022 - 2024</p>
+          {isDesktop && <p className="text-5xl font-black">2022 - 2024</p>}
         </motion.article>
 
         {/* OWN PROJECTS */}
@@ -232,28 +267,36 @@ function AboutMe() {
               transition: { duration: 0.5, delay: 0.2 },
             },
           }}
-          viewport={{ once: true, amount: 0.8 }}
+          viewport={{ once: true, amount: 0.2 }}
         >
-          <div className="flex justify-end">
-            <p className="text-5xl font-black">2024 - 2025</p>
-          </div>
+          {isDesktop && (
+            <div className="flex justify-end">
+              <p className="text-5xl font-black">2024 - 2025</p>
+            </div>
+          )}
         </motion.article>
         <motion.article
           initial="hidden"
           whileInView="visible"
           variants={{
-            hidden: { opacity: 0, scale: 0.8 },
+            hidden: { opacity: 0, scale: isDesktop ? 0.8 : 0 },
             visible: {
               opacity: 1,
               scale: 1,
-              transition: { duration: 0.5, delay: 0.2 },
+              transition: {
+                duration: isDesktop ? 0.5 : 0.3,
+                delay: isDesktop ? 0.2 : 0,
+              },
             },
           }}
-          viewport={{ once: true, amount: 0.8 }}
+          viewport={{ once: true, amount: 0.2 }}
           className="flex flex-col gap-2"
         >
           <h3 className="text-xl font-bold text-slate-400">
-            Building My Own Projects
+            Building My Own Projects{" "}
+            <span className="text-sm text-slate-400!">
+              {!isDesktop && "(2024-2025)"}
+            </span>
           </h3>
           <p>
             At the end of 2024, I started developing GrindPAL, a gym workout
@@ -265,10 +308,6 @@ function AboutMe() {
             personal goal. As someone passionate about fitness, I wanted a tool
             that I would actually use, while also pushing my skills in
             full-stack development, UI/UX design, and performance optimization.
-          </p>
-          <p>
-            In 2023, I worked for Point Vermeille (France) for over a year as a
-            Web Developer, where I:
           </p>
           <p>
             More details about GrindPal are available in the Projects section,
@@ -283,17 +322,25 @@ function AboutMe() {
           initial="hidden"
           whileInView="visible"
           variants={{
-            hidden: { opacity: 0, scale: 0.8 },
+            hidden: { opacity: 0, scale: isDesktop ? 0.8 : 0 },
             visible: {
               opacity: 1,
               scale: 1,
-              transition: { duration: 0.5, delay: 0.2 },
+              transition: {
+                duration: isDesktop ? 0.5 : 0.3,
+                delay: isDesktop ? 0.2 : 0,
+              },
             },
           }}
-          viewport={{ once: true, amount: 0.8 }}
+          viewport={{ once: true, amount: 0.2 }}
           className="flex flex-col gap-2"
         >
-          <h3 className="text-xl font-bold text-slate-400">New life</h3>
+          <h3 className="text-xl font-bold text-slate-400">
+            New life{" "}
+            <span className="text-sm text-slate-400!">
+              {!isDesktop && "(2025-????)"}
+            </span>
+          </h3>
           <p>
             Now based in Calgary, Canada for at least 2 years on a working
             holiday program, I&apos;m excited to keep learning, building, and
@@ -311,9 +358,9 @@ function AboutMe() {
               transition: { duration: 0.5, delay: 0.2 },
             },
           }}
-          viewport={{ once: true, amount: 0.8 }}
+          viewport={{ once: true, amount: 0.2 }}
         >
-          <p className="text-5xl font-black">2025 - ????</p>
+          {isDesktop && <p className="text-5xl font-black">2025 - ????</p>}
         </motion.article>
       </section>
       <h2 className="text-3xl font-bold bg-gradient-to-r from-purple-800 to-purple-500 text-transparent bg-clip-text mt-20">
@@ -321,7 +368,6 @@ function AboutMe() {
       </h2>
       <Hobbies />
     </section>
-    
   );
 }
 

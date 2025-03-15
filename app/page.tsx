@@ -18,9 +18,9 @@ export default function Home() {
       <section id="projects" className="flex h-full justify-center pt-10">
         <Projects />
       </section>
-      {/* <section id="about-me" className="flex h-full justify-center pt-10">
+      <section id="about-me" className="flex h-full justify-center pt-10">
         <AboutMe />
-      </section> */}
+      </section>
       {/* <section id="about-me" className="flex h-full justify-center pt-10">
         <Contact />
       </section> */}
