@@ -24,7 +24,7 @@ export default function Hero() {
         backgroundImage: "url('/tsiry-profile.png')",
         backgroundSize: "contain",
         backgroundRepeat: "no-repeat",
-        backgroundPosition: "-45%",
+        backgroundPosition: window.innerWidth < 1024 ? "" : "-45%",
         backgroundAttachment: "fixed",
       }}
     >
