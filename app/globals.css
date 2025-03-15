@@ -10,23 +10,30 @@
 }
 
 /* CHAT STYLES */
-.bg-gradiant-primary{
+.bg-gradiant-primary {
   @apply bg-gradient-to-r from-fuchsia-900 to-purple-600;
 }
 
 h1 {
-  @apply text-3xl font-bold
+  @apply text-3xl font-bold;
 }
 
 h2 {
-  @apply text-2xl font-bold
+  @apply text-2xl font-bold;
 }
 
 h3 {
-  @apply text-xl font-bold
+  @apply text-xl font-bold;
 }
 
-p, li, span, strong, i {
+strong {
+  @apply text-slate-400;
+}
+
+p,
+li,
+span,
+i {
   @apply text-slate-300;
 }
 
