@@ -15,6 +15,7 @@ interface BasicButtonProps {
     | "ghost";
   isIconOnly?: boolean;
   startContent?: ReactElement;
+  endContent?: ReactElement;
 }
 
 function BasicButton(props: BasicButtonProps) {

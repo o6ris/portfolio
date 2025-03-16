@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import type { Viewport } from 'next'
 import { Providers } from "@/app/providers"
+import ChatModal from "@/components/Chat/ChatModal";
 import { Lexend, Poppins } from "next/font/google";
 import "./globals.css";
 
@@ -38,8 +39,9 @@ export default function RootLayout({
 }>) {
   return (
     <html className="bg-radial from-slate-800 from-20% to-slate-950" lang="en">
-      <body className={`${lexend.className} ${poppins.className}`}>
+      <body className={`${lexend.className} ${poppins.className} relative`}>
         <Providers>
+          <ChatModal />
           {children}
         </Providers>
       </body>
