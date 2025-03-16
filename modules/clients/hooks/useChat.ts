@@ -213,8 +213,7 @@ export default function useChat() {
       !messages[0].answer.includes("Feel free to start with something like")
     )
       setTimeout(() => {
-        setMessages((prevMessages) => [
-          ...prevMessages,
+        setMessages([
           {
             question: "",
             answer:
