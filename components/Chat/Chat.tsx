@@ -47,7 +47,7 @@ function Chat({ toggleDisplay, isDisplayed }: ChatProps) {
       className="flex flex-col gap-4 p-4 bg-gradient-to-r from-slate-950 to-slate-900 shadow-purple-3xl rounded-xl relative w-full h-full lg:w-3/4 lg:h-3/4"
     >
       {isDisplayed && (
-        <div className="flex justify-end absolute top-0 right-0 w-full shadow-md backdrop-blur-sm p-1">
+        <div className="flex justify-end absolute top-0 right-0 w-full rounded-xl shadow-md backdrop-blur-sm p-1">
           <BasicButton
             isIconOnly={true}
             startContent={<Icon name="ChevronDown" color="white" />}

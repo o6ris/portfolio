@@ -61,7 +61,7 @@ function ChatModal() {
       }`}
     >
       <div
-        className={`flex justify-end items-end h-full ${
+        className={`flex justify-end items-end h-full lg:w-2/3 ${
           !isDisplayed && "hidden"
         }`}
       >
