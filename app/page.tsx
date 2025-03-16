@@ -1,4 +1,4 @@
-import Chat from "@/components/Chat/Chat";
+import ChatSection from "@/components/Chat/ChatSection";
 import Hero from "@/components/Hero/Hero";
 import Projects from "@/components/Projects/Projects";
 import AboutMe from "@/components/AboutMe/AboutMe";
@@ -12,7 +12,7 @@ export default function Home() {
           <Hero />
         </section>
         <section className="hidden lg:flex flex-[1.2] flex-col items-center justify-center w-full">
-          <Chat />
+          <ChatSection />
         </section>
       </section>
       <section id="projects" className="flex h-full justify-center pt-10">
