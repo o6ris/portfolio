@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import useChatContext from "@/modules/clients/contexts/chatContext";
 import Chat from "./Chat";
 import BasicButton from "@/core/ui/Button/BasicButton";
 import Icon from "@/core/ui/Icons/Icon";
@@ -8,6 +9,7 @@ import Icon from "@/core/ui/Icons/Icon";
 function ChatModal() {
   const [isDisplayed, setIsDisplayed] = useState(false);
   const [isDesktop, setIsDesktop] = useState(window.innerWidth > 1024);
+  const { isChatDisplayed } = useChatContext();
   const toggleDisplay = () => {
     setIsDisplayed(!isDisplayed);
   };
@@ -52,7 +54,7 @@ function ChatModal() {
           "flex items-center justify-around font-bold shadow-md bg-gradient-to-r from-slate-800 to-slate-900 p-4 rounded-full mb-4!",
       };
 
-  return (
+  return !isChatDisplayed ? (
     <div className={`flex flex-col items-end justify-end fixed bottom-0 right-0 z-20 lg:pr-4 ${isDisplayed && "h-full"}`}>
       <div
         className={`flex justify-end items-end h-full ${
@@ -65,7 +67,7 @@ function ChatModal() {
         <BasicButton onPress={toggleDisplay} {...buttonProps} />;
       </div>
     </div>
-  );
+  ) : null;
 }
 
 export default ChatModal;
