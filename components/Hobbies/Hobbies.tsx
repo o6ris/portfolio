@@ -5,7 +5,7 @@ import Icon from "@/core/ui/Icons/Icon";
 
 function Hobbies() {
   return (
-    <section className="grid grid-cols-4 gap-12">
+    <section className="grid gap-12 md:grid-cols-2 xl:grid-cols-3">
       <motion.article
         initial="hidden"
         whileInView="visible"
@@ -29,10 +29,12 @@ function Hobbies() {
           Fitness & Biomechanics: Training Smarter, Not Just Harder
         </h3>
         <p>
-          I&apos;ve always been fascinated by how different movements impact the
-          body. Over the years, I&apos;ve dived deep into training
-          principles, movement efficiency, and injury prevention, always
-          striving to train smarter, not just harder.
+          I&apos;ve always been fascinated by how different{" "}
+          <strong>movements</strong> impact the <strong>body</strong>. Over the
+          years, I&apos;ve dived deep into <strong>training principles</strong>,{" "}
+          <strong>movement efficiency</strong>, and{" "}
+          <strong>injury prevention</strong>, always striving to train{" "}
+          <strong>smarter</strong>, not just harder.
         </p>
       </motion.article>
       <motion.article
@@ -58,13 +60,14 @@ function Hobbies() {
           Traveling: Seeing the Beauty of Humanity
         </h3>
         <p>
-          Exploring new cultures, trying new foods, and broadening my
-          perspective
+          Exploring new <strong>cultures</strong>, trying new{" "}
+          <strong>foods</strong>, and broadening my <strong>perspective</strong>
         </p>
         <p>
-          In 2022, my wife and I traveled to Malaysia, a modern, clean, and
-          diverse country. Seeing people from different backgrounds coexist in
-          harmony deeply moved us, revealing the beauty of humanity.
+          In 2022, my wife and I traveled to <strong>Malaysia</strong>, a
+          modern, clean, and diverse country. Seeing people from different
+          backgrounds coexist in harmony deeply moved us, revealing the beauty
+          of <strong>humanity</strong>.
         </p>
       </motion.article>
       <motion.article
@@ -90,10 +93,12 @@ function Hobbies() {
           Hiking: Reconnecting with Nature and Myself
         </h3>
         <p>
-          When I&apos;m out hiking, it&apos;s the only time I feel truly present
-          in the moment. The rhythmic movement, fresh air, and vast landscapes
-          calm my thoughts like nothing else, helping me reconnect with myself
-          and find clarity in life.
+          When I&apos;m out <strong>hiking</strong>, it&apos;s the only time I
+          feel truly <strong>present</strong> in the moment. The rhythmic{" "}
+          <strong>movement</strong>, fresh air, and vast{" "}
+          <strong>landscapes</strong> calm my thoughts like nothing else,
+          helping me reconnect with myself and find <strong>clarity</strong> in
+          life.
         </p>
       </motion.article>
       <motion.article
@@ -119,14 +124,17 @@ function Hobbies() {
           AI & Web3: Experimenting with the Future
         </h3>
         <p>
-          Curious about emerging technologies, I own an Ethereum wallet, which
-          has allowed me to explore decentralized apps (dApps), smart contracts,
-          and blockchain mechanics firsthand.
+          Curious about emerging <strong>technologies</strong>, I own an{" "}
+          <strong>Ethereum wallet</strong>, which has allowed me to explore{" "}
+          <strong>decentralized apps (dApps)</strong>,{" "}
+          <strong>smart contracts</strong>, and{" "}
+          <strong>blockchain mechanics</strong> firsthand.
         </p>
         <p>
-          More recently, I&apos;ve decided to dive into AI and learn how to
-          build AI agents. The potential of AI fascinates me, and I&apos;m
-          excited to see how it will shape our future.
+          More recently, I&apos;ve decided to dive into <strong>AI</strong> and
+          learn how to build <strong>AI agents</strong>. The potential of{" "}
+          <strong>AI</strong> fascinates me, and I&apos;m excited to see how it
+          will shape our <strong>future</strong>.
         </p>
       </motion.article>
     </section>

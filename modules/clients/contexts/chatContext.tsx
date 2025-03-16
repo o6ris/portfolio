@@ -10,6 +10,8 @@ interface Message {
 interface ChatContextType {
   messages: Message[];
   setMessages: React.Dispatch<React.SetStateAction<Message[]>>;
+  isChatDisplayed: boolean;
+  setIsChatDisplayed: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 type Props = {
@@ -20,9 +22,10 @@ const ChatContext = createContext<ChatContextType | undefined>(undefined);
 
 export function ChatProvider({ children }: Props) {
   const [messages, setMessages] = useState<Message[]>([]);
+  const [isChatDisplayed, setIsChatDisplayed] = useState<boolean>(true);
 
   return (
-    <ChatContext.Provider value={{ messages, setMessages }}>
+    <ChatContext.Provider value={{ messages, setMessages, isChatDisplayed, setIsChatDisplayed }}>
       {children}
     </ChatContext.Provider>
   );

@@ -1,4 +1,4 @@
-import Chat from "@/components/Chat/Chat";
+import ChatSection from "@/components/Chat/ChatSection";
 import Hero from "@/components/Hero/Hero";
 import Projects from "@/components/Projects/Projects";
 import AboutMe from "@/components/AboutMe/AboutMe";
@@ -6,13 +6,13 @@ import Contact from "@/components/Contact/Contact";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-radial from-slate-800 from-20% to-slate-950">
-      <section className="flex h-dvh">
-        <section className="flex items-center justify-center w-full h-full">
+    <main className="min-h-screen">
+      <section className="flex flex-col lg:flex-row lg:h-dvh">
+        <section className="flex flex-[0.8] items-center justify-center w-full lg:h-full">
           <Hero />
         </section>
-        <section className="flex flex-col items-center justify-center w-full">
-          <Chat />
+        <section className="hidden lg:flex flex-[1.2] flex-col items-center justify-center w-full">
+          <ChatSection />
         </section>
       </section>
       <section id="projects" className="flex h-full justify-center pt-10">

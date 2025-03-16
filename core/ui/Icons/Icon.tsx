@@ -1,7 +1,7 @@
 import { icons, LucideIcon } from "lucide-react";
 
 interface IconProps {
-  name?: keyof typeof icons; // Ensure only valid keys are used
+  name?: keyof typeof icons;
   color?: string;
   size?: number;
   strokeWidth?: number;

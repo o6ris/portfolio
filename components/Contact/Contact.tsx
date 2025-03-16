@@ -9,19 +9,19 @@ import BasicButton from "@/core/ui/Button/BasicButton";
 function Contact() {
   const { sendMessage, formDataOnChange, formData, errors } = useContact();
   return (
-    <motion.section className="flex flex-col gap-6 px-20 pb-20 w-full">
+    <motion.section className="flex flex-col gap-6 pb-20 w-full p-2 lg:px-20 ">
       <h2 className="bg-gradient-to-r from-purple-800 to-purple-500 text-transparent bg-clip-text">
         Contact me
       </h2>
       <form className="flex flex-col gap-6 w-full">
-        <div className="flex w-full gap-6">
+        <div className="flex flex-col w-full gap-6 lg:flex-row">
           <InputField
             placeholder="eg: John"
             variant="bordered"
             // isDisabled={isLoading}
             classNames={{
-              inputWrapper: "flex-1 border-2 border-slate-400 rounded-2xl",
-              input: "p-4 text-slate-500",
+              inputWrapper: "border-2 border-slate-400 rounded-2xl",
+              input: "p-4 text-slate-300",
             }}
             value={formData.name}
             onValueChange={(value) => formDataOnChange("name", value)}
@@ -32,8 +32,8 @@ function Contact() {
             variant="bordered"
             // isDisabled={isLoading}
             classNames={{
-              inputWrapper: "flex-1 border-2 border-slate-400 rounded-2xl",
-              input: "p-4 text-slate-500",
+              inputWrapper: "border-2 border-slate-400 rounded-2xl",
+              input: "p-4 text-slate-300",
             }}
             value={formData.email}
             onValueChange={(value) => formDataOnChange("email", value)}
@@ -48,7 +48,7 @@ function Contact() {
           // isDisabled={isLoading}
           classNames={{
             inputWrapper: "flex-1 border-2 border-slate-400 rounded-2xl",
-            input: "p-4 text-slate-500",
+            input: "p-4 text-slate-300",
           }}
           value={formData.message}
           isCharNumbDisplayed={true}
