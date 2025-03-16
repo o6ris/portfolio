@@ -30,7 +30,7 @@ function ChatModal() {
           }
           content="Chat with me!"
           onPress={toggleDisplay}
-          className="flex items-center justify-around font-bold text-slate-200 w-1/2 bg-gradient-to-r shadow-md from-slate-800 to-slate-900 p-3 rounded-t-lg"
+          className="flex items-center justify-around font-bold text-slate-200 w-1/2 shadow-md bg-gradient-to-r from-slate-800 to-slate-900 p-2 rounded-t-lg "
         />
       </div>
     </div>

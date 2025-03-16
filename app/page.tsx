@@ -7,11 +7,11 @@ import Contact from "@/components/Contact/Contact";
 export default function Home() {
   return (
     <main className="min-h-screen">
-      <section className="flex flex-col xl:flex-row xl:h-dvh">
-        <section className="flex items-center justify-center w-full h-full">
+      <section className="flex flex-col lg:grid lg:grid-cols-[0.8fr_1.2fr] lg:h-dvh">
+        <section className="flex items-center justify-center w-full lg:h-full">
           <Hero />
         </section>
-        <section className="flex flex-col items-center justify-center w-full">
+        <section className="hidden lg:flex flex-col items-center justify-center w-full">
           <Chat />
         </section>
       </section>
