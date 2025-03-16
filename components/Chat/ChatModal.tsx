@@ -53,7 +53,7 @@ function ChatModal() {
       };
 
   return (
-    <div className={`flex flex-col items-end justify-end fixed bottom-0 right-0 z-20 pr-4 ${isDisplayed && "h-full"}`}>
+    <div className={`flex flex-col items-end justify-end fixed bottom-0 right-0 z-20 lg:pr-4 ${isDisplayed && "h-full"}`}>
       <div
         className={`flex justify-end items-end h-full ${
           !isDisplayed && "hidden"
