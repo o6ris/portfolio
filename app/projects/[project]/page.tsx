@@ -23,11 +23,11 @@ export async function generateMetadata({
 
   return {
     title: myProject?.name,
-    description: myProject?.description,
+    description: myProject?.summary,
     keywords: myProject?.stack.join(),
     openGraph: {
       title: myProject?.name,
-      description: myProject?.description,
+      description: myProject?.summary,
       type: "article",
       url: `${baseUrl}/projects/${myProject?.name}`,
       authors: [`${baseUrl}`],
