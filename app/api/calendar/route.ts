@@ -1,5 +1,7 @@
 // ONLY IN LOCAL
-process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
+if (process.env.NODE_ENV === 'development') {
+  process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
+}
 
 import { NextRequest, NextResponse } from "next/server";
 import { getGoogleCalendarClient } from "@/lib/googleAuth";
