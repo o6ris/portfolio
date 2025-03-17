@@ -1,3 +1,5 @@
+"use client";
+
 import { Button, PressEvent } from "@heroui/react";
 import { ReactElement } from "react";
 
