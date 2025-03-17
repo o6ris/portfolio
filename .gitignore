@@ -39,3 +39,8 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# googleAuth
+client_secret_google.json
+google_token.json
+get-refresh-token-url
