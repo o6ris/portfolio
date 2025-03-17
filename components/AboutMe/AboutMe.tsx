@@ -28,7 +28,7 @@ function AboutMe() {
 
   // const height = Math.min((scrollY / documentHeight) * 100, 100);
 
-  const [isDesktop, setIsDesktop] = useState(window.innerWidth > 768);
+  const [isDesktop, setIsDesktop] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {

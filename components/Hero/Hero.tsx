@@ -8,6 +8,7 @@ import { motion } from "framer-motion";
 
 export default function Hero() {
   const [isInView, setIsInView] = useState(false);
+  const [backgroundPosition, setBackgroundPosition] = useState("");
   const { setIsChatDisplayed } = useChatContext();
   const heroRef = useRef<HTMLDivElement>(null);
 
@@ -47,6 +48,10 @@ export default function Hero() {
     }
   }, [isInView]);
 
+  useEffect(() => {
+    setBackgroundPosition(window.innerWidth < 1024 ? "" : "-45%");
+  }, []);
+
   return (
     <motion.section
       ref={heroRef}
@@ -58,7 +63,7 @@ export default function Hero() {
         backgroundImage: "url('/tsiry-profile.png')",
         backgroundSize: "contain",
         backgroundRepeat: "no-repeat",
-        backgroundPosition: window.innerWidth < 1024 ? "" : "-45%",
+        backgroundPosition: backgroundPosition,
         backgroundAttachment: "fixed",
       }}
     >

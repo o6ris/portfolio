@@ -8,7 +8,7 @@ import Icon from "@/core/ui/Icons/Icon";
 
 function ChatModal() {
   const [isDisplayed, setIsDisplayed] = useState(false);
-  const [isDesktop, setIsDesktop] = useState(window.innerWidth > 1024);
+  const [isDesktop, setIsDesktop] = useState(false);
   const { isChatDisplayed } = useChatContext();
   const toggleDisplay = () => {
     setIsDisplayed(!isDisplayed);
