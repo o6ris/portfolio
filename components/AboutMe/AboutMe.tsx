@@ -36,7 +36,7 @@ function AboutMe() {
     };
 
     window.addEventListener("resize", handleResize);
-
+    handleResize();
     // Cleanup event listener on component unmount
     return () => window.removeEventListener("resize", handleResize);
   }, []);
