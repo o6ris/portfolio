@@ -17,6 +17,8 @@ interface formDataProps {
 }
 
 export default function useContact() {
+  const [isLoading, setIsLoading] = useState(false);
+  const [notif, setNotif] = useState("");
   const [formData, setFormData] = useState<formDataProps>({
     name: "",
     email: "",
@@ -30,6 +32,7 @@ export default function useContact() {
   };
   const sendMessage = async () => {
     try {
+      setIsLoading(true);
       contactSchema.parse(formData);
 
       const url = `${baseUrl}/api/contact`;
@@ -40,7 +43,15 @@ export default function useContact() {
       const data = await response.json();
 
       if (response.ok) {
-        // TODO: send a notification
+        setNotif("Message sent!");
+        setTimeout(() => {
+          setNotif("");
+        }, 3000);
+        setFormData({
+          name: "",
+          email: "",
+          message: "",
+        });
       } else {
         const error = new Error(data.message);
         throw error;
@@ -51,6 +62,8 @@ export default function useContact() {
       } else {
         console.error(error);
       }
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -59,5 +72,7 @@ export default function useContact() {
     formDataOnChange,
     formData,
     errors,
+    isLoading,
+    notif,
   };
 }

@@ -6,6 +6,7 @@ import { ReactElement } from "react";
 interface BasicButtonProps {
   className?: string;
   content?: string;
+  isDisabled?: boolean;
   onPress?: (e: PressEvent) => void;
   variant?:
     | "flat"
