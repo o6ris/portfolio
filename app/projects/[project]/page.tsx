@@ -47,7 +47,6 @@ export async function generateMetadata({
 async function ProjectPage({ params }: ProjectPageProps) {
   const { project } = await params;
   const myProject = getProject(project);
-  console.log("project", myProject);
 
   return (
     <section className="min-h-screen bg-radial from-slate-800 from-20% to-slate-950 relative p-8">
@@ -60,7 +59,7 @@ async function ProjectPage({ params }: ProjectPageProps) {
           <h1 className="text-3xl font-bold bg-gradient-to-r from-purple-800 to-purple-500 text-transparent bg-clip-text">
             {myProject?.name}
           </h1>
-          <OpenLinkButton url={myProject?.externalLink} />
+          <OpenLinkButton url={myProject?.externalLink} name="ExternalLink" />
         </div>
         <div className="flex flex-col gap-1 md:flex-row md:items-center">
           <span className="text-lg font-semibold text-slate-600!">
