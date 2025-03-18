@@ -1,16 +1,11 @@
 # Changelog  
 
-## [0.9.2] - 2025-03-17  
+## [0.9.3] - 2025-03-16  
 
 ### 🚀 Features  
 
-- **External Links Section**:  
-  - Added direct access links to my social media.  
+- **Privacy Policy Page**:  
+  - Created a new privacy policy page and linked it from the layout.  
 
-- **Contact Form Enhancements**:  
-  - Implemented a notification system to confirm when a message is sent.  
-
-### 🛠️ Fixes  
-
-- **Code Cleanup**:  
-  - Removed unnecessary `console.log` statements to improve code cleanliness.  
+- **Sitemap Update**:  
+  - Added the privacy policy page to th
