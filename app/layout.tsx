@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Metadata, Viewport } from "next";
 import { Providers } from "@/app/providers";
 import ChatModal from "@/components/Chat/ChatModal";
@@ -11,7 +12,7 @@ export const metadata: Metadata = {
     "Frontend Developer skilled in React, Next.js & MongoDB, with a background in multimedia. Passionate about design, innovation & building user-friendly web apps.",
   // Open Graph settings for social media sharing
   openGraph: {
-    siteName: "Tsiry | Web developer who loves turning Ideas to Life", 
+    siteName: "Tsiry | Web developer who loves turning Ideas to Life",
     type: "website",
     locale: "en_US",
   },
@@ -52,7 +53,6 @@ const poppins = Poppins({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
 });
 
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -65,6 +65,11 @@ export default function RootLayout({
           <ExternalLinks />
           <ChatModal />
           {children}
+          <div className="flex justify-center items-center p-4">
+            <Link className="text-slate-600 text-sm" href="/privacy-policy">
+              Privacy Policy
+            </Link>
+          </div>
         </Providers>
       </body>
     </html>
