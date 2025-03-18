@@ -4,9 +4,6 @@ const baseUrl = process.env.NEXT_PUBLIC_API_URL;
 
 export default function sitemap(): MetadataRoute.Sitemap {
   try {
-    console.log("Generating sitemap...");
-    console.log("Base URL:", baseUrl); // Debug: Check the base URL
-
     if (!baseUrl) {
       throw new Error("NEXT_PUBLIC_API_URL is not set.");
     }
@@ -15,14 +12,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${baseUrl}/projects/${project.name.toLowerCase()}`,
       lastModified: new Date(),
     }));
-
-    console.log("Sitemap entries:", [
-      {
-        url: `${baseUrl}`,
-        lastModified: new Date(),
-      },
-      ...projects,
-    ]);
 
     return [
       {

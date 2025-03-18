@@ -40,7 +40,7 @@ export default function useContact() {
       const data = await response.json();
 
       if (response.ok) {
-        console.log(data);
+        // TODO: send a notification
       } else {
         const error = new Error(data.message);
         throw error;
