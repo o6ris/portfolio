@@ -18,6 +18,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
         url: `${baseUrl}`,
         lastModified: new Date(),
       },
+      {
+        url: `${baseUrl}/privacy-policy`,
+        lastModified: new Date(),
+      },
       ...projects,
     ];
   } catch (error) {
