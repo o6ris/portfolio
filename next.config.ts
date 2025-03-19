@@ -3,7 +3,7 @@ import type { NextConfig } from "next";
 const isDev = process.env.NODE_ENV === "development";
 const frontendOrigin = isDev
   ? "http://localhost:3000"
-  : "https://tsiryralambo.me";
+  : "https://www.tsiryralambo.me";
 
 const nextConfig: NextConfig = {
   async headers() {
