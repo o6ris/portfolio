@@ -1,11 +1,8 @@
 # Changelog  
 
-## [0.9.3] - 2025-03-16  
+## [0.9.4] - 2025-03-16  
 
-### 🚀 Features  
+### 🛠 Fixes  
 
-- **Privacy Policy Page**:  
-  - Created a new privacy policy page and linked it from the layout.  
-
-- **Sitemap Update**:  
-  - Added the privacy policy page to th
+- **CORS Error**:  
+  - Fixed CORS issue in `next.config.js` to ensure proper API communication.  
